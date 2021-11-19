@@ -8,5 +8,5 @@
  - Hozz létre a könyvtáradban egy `hazi` mappat ahova feltudod majd tenni a házifeladatokat, a házikat is mindig 
    tedd a homework-ön belül egy új könyvtárba pl ami a házi neve
  - Hozz létre egy `modulzaro` mappát is, majd ebbe kerülnek a modulzáros feladatok.
- - Miután ez egy közös repository, igy `mindenki mendenkinek a könyvtárára rá lát`, olvashatja, mindig figyelj, hogy csak a saját
+ - Miután ez egy közös repository, igy `mindenki mendenkinek a könyvtárára rálát`, olvashatja, mindig figyelj, hogy csak a saját
    könyvtáradba módosítás, törölj, stb.
