@@ -12,3 +12,4 @@
    könyvtáradba módosítás, törölj, stb.
 
 
+igen
