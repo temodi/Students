@@ -10,3 +10,5 @@
  - Hozz létre egy `modulzaro` mappát is, majd ebbe kerülnek a modulzáros feladatok.
  - Miután ez egy közös repository, igy `mindenki mendenkinek a könyvtárára rálát`, olvashatja, mindig figyelj, hogy csak a saját
    könyvtáradba módosítás, törölj, stb.
+
+
