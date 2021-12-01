@@ -17,8 +17,15 @@ function d6() {
 }
 
 
+
+
+//osszeadosdi
 let sorozat = [1, 2, 3, 4, 5]
 
-sorozat.reduce((a, b) => {
-    return a + b
-})
+
+function addUp(tomb) {
+    let add = tomb.reduce((a, b) => {
+        return a + b
+    })
+    return add
+}
