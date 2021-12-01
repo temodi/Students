@@ -27,3 +27,13 @@ function osszegzes (arrayy) {
 }
 
 console.log (osszegzes([1,2,3,4,5]));
+
+function osszegzes2 (arrayy) {
+  let sum = 0;
+       for (let i = 0; i < arrayy.length; i++) {
+         if (arrayy[i] < 0 ){
+           sum++
+         }
+       }
+       return sum;
+       }
