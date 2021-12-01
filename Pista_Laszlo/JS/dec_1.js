@@ -29,3 +29,19 @@ function addUp(tomb) {
     })
     return add
 }
+
+
+//nagyon negaív 
+
+
+let tombTomb = [-1, -6, 6, 7, 4, , 7, -8];
+
+function negativNumbers(ideaddatombotMo) {
+    let counter = 0;
+    for (i = 0; i < ideaddatombotMo.length; i++) {
+        if (ideaddatombotMo[i] < 0) {
+            counter++
+        }
+    }
+    return counter
+}
