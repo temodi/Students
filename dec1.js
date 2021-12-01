@@ -38,3 +38,4 @@ function osszegzes2 (arrayy) {
        return sum;
        }
 //asdasdasdasddsasdadsa//
+
