@@ -9,14 +9,15 @@
 
 
 
-let tomb = [1, 2, 3, 4, 5];
-let sum = 0;
-function addUp (){
-    for (let i = 0; i < tomb.length; i++){
-        sum += tomb[i]
+
+
+function addUp (arr){
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++){
+        sum += arr[i]
     }return sum
 }
-console.log(addUp());
+console.log(addUp([1, 2, 3, 4, 5]));
 
 </script>    
 </head>
