@@ -15,3 +15,10 @@ function d6() {
 
     return result
 }
+
+
+let sorozat = [1, 2, 3, 4, 5]
+
+sorozat.reduce((a, b) => {
+    return a + b
+})
