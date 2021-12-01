@@ -1,5 +1,5 @@
 // function random(min, max) {
-    
+
 //     return  Math.floor(Math.random()*(max - min + 1) + min);
 // }
 // let kockaArray=[0,0,0,0,0,0];
@@ -40,7 +40,7 @@
 
 
 // function dice(times){
-    
+
 //     for(let i=0;i<times;i++){
 //         let kockaDobas=d6()
 //         kockaArray[kockaDobas-1]++;
@@ -51,12 +51,27 @@
 // console.log(kockaArray)
 
 
-let num=[1,2,3,4,5,6,7,8,9,10]
-let sum=0;
+// let num=[1,2,3,4,5,6,7,8,9,10]
+// let sum=0;
 
-function sumArray(array)
-{for(let i=0;i<array.length;i++){
-    sum +=array[i]
-}}
+// function sumArray(array)
+// {for(let i=0;i<array.length;i++){
+//     sum +=array[i]
+// }}
 
-console.log(sum)
+// console.log(sum)
+
+
+let numArray = [0, 1, 2, 3, 45, -10, -12, -123, -12443543]
+
+function negativeCounter(array) {
+    let negative
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0) negative++
+
+
+    }
+    return negative
+}
+
+console.log(negativeCounter(numArray))
