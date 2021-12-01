@@ -62,16 +62,26 @@
 // console.log(sum)
 
 
+// let numArray = [0, 1, 2, 3, 45, -10, -12, -123, -12443543]
+
+// function negativeCounter(array) {
+//     let negative
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] < 0) negative++
+
+
+//     }
+//     return negative
+// }
+
+// console.log(negativeCounter(numArray))
+
 let numArray = [0, 1, 2, 3, 45, -10, -12, -123, -12443543]
 
-function negativeCounter(array) {
-    let negative
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] < 0) negative++
+function eldontes(array, search) {
+    if (array.includes(search)) return true;
+    else return false;
 
 
-    }
-    return negative
+
 }
-
-console.log(negativeCounter(numArray))
