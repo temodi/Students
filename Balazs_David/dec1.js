@@ -33,7 +33,7 @@ function negOsszegzes(arr) {
     let osszeg = 0;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] < 0) {
-            osszeg += arr[i];
+            osszeg++;
         }
     }
     return osszeg;
