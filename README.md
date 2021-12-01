@@ -12,4 +12,4 @@
    könyvtáradba módosítás, törölj, stb.
 
 
-igen
+igen# Ravenlordi-vil-ga
