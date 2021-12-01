@@ -20,9 +20,22 @@ function testRandomDiceThrow() {
 console.log(testRandomDiceThrow());
 */
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let osszeg = 0;
-for (let i = 0; i < arr.length; i++) {
-    osszeg += arr[i];
+function osszegzes(arr) {
+    let osszeg = 0;
+    for (let i = 0; i < arr.length; i++) {
+        osszeg += arr[i];
+    }
+    return osszeg;
 }
-console.log(osszeg);
+console.log(osszegzes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+function negOsszegzes(arr) {
+    let osszeg = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            osszeg += arr[i];
+        }
+    }
+    return osszeg;
+}
+console.log(negOsszegzes([1, -2, 3, -4, 5, -6, 7, -8, 9, -10]));
