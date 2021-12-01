@@ -45,3 +45,16 @@ function negativNumbers(ideaddatombotMo) {
     }
     return counter
 }
+
+
+//eldol
+
+let szamsorozat = [1, 2, 3, 4]
+
+function eldol(tomb, szam) {
+    if (szamsorozat.includes(szam)) {
+        return true
+    } else {
+        return false
+    }
+}
