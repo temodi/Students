@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 asd
-=======
-Ababla
->>>>>>> main
