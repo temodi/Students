@@ -98,3 +98,17 @@ function eldontes(tomb, feltetel) {
     return false;
 }
 console.log(eldontes(tomb, 0));
+
+// 6 feladat kivalasztas
+
+function kivalasztas(tomb, ertek) {
+    for (let i = 0; i < tomb.length; i++) {
+        if (tomb[i] === ertek) {
+            return i;
+        }
+    }
+    return -1;
+}
+console.log(kivalasztas(tomb, 5));
+
+// 7 feladat masolas
