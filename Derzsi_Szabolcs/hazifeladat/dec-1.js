@@ -93,9 +93,8 @@ function eldontes(tomb, feltetel) {
     for (let i = 0; i < tomb.length; i++) {
         if (tomb[i] === feltetel) {
             return true;
-        } else {
-            return false;
         }
     }
+    return false;
 }
 console.log(eldontes(tomb, 0));
