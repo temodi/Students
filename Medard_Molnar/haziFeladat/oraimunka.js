@@ -86,16 +86,16 @@ function eldontes(array, search) {
 
 }
 
-console.log(eldontes(numArray,1))
+console.log(eldontes(numArray, 1))
 
 
 function indexOf(array, search) {
-    for (let i=0;i<array.length;i++){
-        if(array[i]==search) return i
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == search) return i
     }
 
 
 
 }
 
-console.log(indexOf(numArray,45))
+console.log(indexOf(numArray, 45))
