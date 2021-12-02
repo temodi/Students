@@ -123,3 +123,4 @@ function masolas(tomb) {
 
 console.log(tomb);
 console.log(masolas(tomb));
+console.log(masolas([-1]));
