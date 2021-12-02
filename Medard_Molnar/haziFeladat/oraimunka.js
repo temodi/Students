@@ -94,18 +94,67 @@
 
 // console.log(indexOf(numArray, 45))
 
-let array = [1, 2, 3, 4, 5, 6, 7, 8]
+// let array = [1, 2, 3, 4, 5, 6, 7, 8]
 
 
 
-function plusz(array, plussz) {
-    let vegeredmeny = []
-    for (let i = 0; i < array.length; i++) {
-        vegeredmeny.push(array[i] + plussz)
+// function plusz(array, plussz) {
+//     let vegeredmeny = []
+//     for (let i = 0; i < array.length; i++) {
+//         vegeredmeny.push(array[i] + plussz)
+//     }
+
+//     return vegeredmeny;
+// }
+
+// console.log(plusz(array, 10));
+// console.log(array);
+
+function lottoWrite(kind, joker) {
+    let lottoArray = []
+    if (kind == 5) {
+        for (let i = 0; i < kind; i++) {
+            let szam = Math.floor(Math.random() * 90 + 1)
+            lottoArray.push(szam)
+        }
+    }
+    else if (kind == 6) {
+        for (let i = 0; i < kind; i++) {
+            let szam = Math.floor(Math.random() * 45 + 1)
+            lottoArray.push(szam)
+        }
+    }
+    else if (kind == "skandi") {
+        for (let i = 0; i < 7; i++) {
+            let szam = Math.floor(Math.random() * 35 + 1)
+            lottoArray.push(szam)
+        }
+
+    }
+    if (joker == "joker") {
+        joker = Math.floor(Math.random() * 99999 + 1)
+        return {
+            lottoszamok: lottoArray,
+            joker: joker
+        }
+    }
+    else if (joker == "euro") {
+        let jokerA = []
+        let jokerB = []
+
+        for (let i = 0; i < 5; i++) {
+            jokerA.push(Math.floor(Math.random() * 50 + 1))
+        }
+        for (let i = 0; i < 2; i++) {
+            jokerB.push(Math.floor(Math.random() * 10 + 1))
+        }
+
+        return {
+            lottoszamok: lottoArray,
+            A: jokerA,
+            B: jokerB
+        }
     }
 
-    return vegeredmeny;
 }
-
-console.log(plusz(array, 10));
-console.log(array);
+console.log(lottoWrite("skandi", "euro"))
