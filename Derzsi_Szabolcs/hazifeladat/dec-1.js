@@ -112,3 +112,14 @@ function kivalasztas(tomb, ertek) {
 console.log(kivalasztas(tomb, 5));
 
 // 7 feladat masolas
+
+function masolas(tomb) {
+    let tomb2 = [];
+    for (let i = 0; i < tomb.length; i++) {
+        tomb2[i] = tomb[i] + 1; 
+    }
+    return tomb2;
+}
+
+console.log(tomb);
+console.log(masolas(tomb));
