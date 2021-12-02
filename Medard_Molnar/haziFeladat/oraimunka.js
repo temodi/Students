@@ -104,7 +104,7 @@ function plusz(array, plussz) {
         vegeredmeny.push(array[i] + plussz)
     }
 
-    return vegeredmeny
+    return vegeredmeny;
 }
 
 console.log(plusz(array, 10));
