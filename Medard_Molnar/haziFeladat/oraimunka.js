@@ -76,7 +76,7 @@
 
 // console.log(negativeCounter(numArray))
 
-let numArray = [0, 1, 2, 3, 45, -10, -12, -123, -12443543,10101210]
+let numArray = [0, 1, 2, 3, 45, -10, -12, -123, -12443543,10101210,1340]
 
 function eldontes(array, search) {
     if (array.includes(search)) return true;
