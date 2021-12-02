@@ -1,1 +1,0 @@
-let ertek = 0
