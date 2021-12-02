@@ -85,3 +85,17 @@ function eldontes(array, search) {
 
 
 }
+
+console.log(eldontes(numArray,1))
+
+
+function indexOf(array, search) {
+    for (let i=0;i<array.length;i++){
+        if(array[i]==search) return i
+    }
+
+
+
+}
+
+console.log(indexOf(numArray,45))
