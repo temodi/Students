@@ -94,17 +94,18 @@
 
 // console.log(indexOf(numArray, 45))
 
-let array=[1,2,3,4,5,6,7,8]
+let array = [1, 2, 3, 4, 5, 6, 7, 8]
 
 
 
-function plusz(array,plussz){
-    let vegeredmeny=[]
-    for(let i=0;i<array.length;i++){
-        vegeredmeny.push(array[i]+plussz)
+function plusz(array, plussz) {
+    let vegeredmeny = []
+    for (let i = 0; i < array.length; i++) {
+        vegeredmeny.push(array[i] + plussz)
     }
 
     return vegeredmeny
 }
 
-console.log(plusz(array,10))
+console.log(plusz(array, 10))
+console.log(array)
