@@ -107,5 +107,5 @@ function plusz(array, plussz) {
     return vegeredmeny
 }
 
-console.log(plusz(array, 10))
-console.log(array)
+console.log(plusz(array, 10));
+console.log(array);
