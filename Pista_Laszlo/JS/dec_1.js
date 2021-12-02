@@ -52,9 +52,25 @@ function negativNumbers(ideaddatombotMo) {
 let szamsorozat = [1, 2, 3, 4]
 
 function eldol(tomb, szam) {
+    let answer = false
     if (szamsorozat.includes(szam)) {
-        return true
+        answer = true;
     } else {
-        return false
+        answer = false;
     }
+    return answer
+}
+
+//Komplikáltabb;
+
+let megtombosodesV2 = [1, 2, 3, 4, 5, 6, 7, 8];
+
+function majdMostEldol(tomb, szam) {
+    let eredmeny = []
+    if (tomb.includes(szam)) {
+        eredmeny = [tomb.indexOf(szam), true]
+    } else {
+        eredmeny = [-1, false]
+    }
+    return eredmeny
 }
