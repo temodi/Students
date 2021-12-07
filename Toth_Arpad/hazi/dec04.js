@@ -46,6 +46,48 @@
 
 // //               Kuponos vacakolas
 
+// let kuponok = [
+//     {
+//         kod: "XMAS10",
+//         tipus: "percent",
+//         ertek: 0.1
+//     },
+//     {
+//         kod: "SANTA1000",
+//         tipus: "fix",
+//         ertek: 1000
+//     }
+// ];
+
+// let eredetiAr = 25000;
+
+// function getLucky() {
+//     let kuponKod = window.prompt("Add meg a kuponkodot:");
+//     if (kuponKod !== kuponok[0].kod && kuponKod !== kuponok[1].kod) {
+//         return "Nem letezo kupon"
+//     } 
+//     else if ( kuponKod === kuponok[0].kod) {
+//         return resultXmas();
+//     }
+//     else if ( kuponKod === kuponok[1].kod) {
+//         return resultSanta();
+//     }
+// }
+
+
+// function resultXmas() {
+//     return eredetiAr - (eredetiAr * kuponok[0].ertek);
+// }
+
+// function resultSanta() {
+//     return eredetiAr - kuponok[1].ertek;
+// }
+
+// console.log("Fizetendo osszeg: " + getLucky());
+
+
+//          uaz, switch-el
+
 let kuponok = [
     {
         kod: "XMAS10",
@@ -63,29 +105,24 @@ let eredetiAr = 25000;
 
 function getLucky() {
     let kuponKod = window.prompt("Add meg a kuponkodot:");
-    if (kuponKod !== kuponok[0].kod && kuponKod !== kuponok[1].kod) {
-        return "Nem letezo kupon"
-    } 
-    else if ( kuponKod === kuponok[0].kod) {
-        return resultXmas();
-    }
-    else if ( kuponKod === kuponok[1].kod) {
-        return resultSanta();
+    switch (kuponKod) {
+        case "XMAS10":
+            console.log(resultXmas());
+            break;
+        case "SANTA1000":
+            console.log(resultSanta());
+            break;
+        default:
+            console.log("Nem letezo kupon")
     }
 }
 
-
 function resultXmas() {
-    return eredetiAr - (eredetiAr * kuponok[0].ertek);
+    return `Fizetendo osszeg : ${eredetiAr - (eredetiAr * kuponok[0].ertek)}`;
 }
 
 function resultSanta() {
-    return eredetiAr - kuponok[1].ertek;
+    return `Fizetendo osszeg : ${eredetiAr - kuponok[1].ertek}`;
 }
 
-console.log("Fizetendo osszeg: " + getLucky());
-
-
-
-
-
+getLucky();
