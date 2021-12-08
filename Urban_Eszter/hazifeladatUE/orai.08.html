@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myPhoneNumbers = [3630792765, 3630369549, 3620797249, 3670129465, 3630735165, 3630799685, 3630294765, 3630739572, 3630792388, 3630792947, 3630798965, 3630799284, 3630793325, 3630799685, 3630194265,];
+        let myNames = ['Bandobras Underhill', 'Robin Gardner', 'Isembold Whitfoot', 'Donnamira Galbassi', 'Bungo Baggins', 'Will Sandyman', 'Isengrim Proudfoot', 'Frodo Baggins', 'Amaranth Gaukrogers', 'Trahand Bunce', 'Will Sandyman', 'Halfred Goodchild', 'Bilbo Baggins', 'Will Sandyman', 'Belba Sandheaver'];
+        function telephoneBookAdder(names, phoneNumbers){
+            let telephoneBook = [];
+            for(let i = 0; i < names.length; i++){
+                telephoneBook.push({name: names[i], phonenumber: phoneNumbers[i]})
+            
+            }
+            return telephoneBook;
+        }
+        let phoneBook = telephoneBookAdder(myNames, myPhoneNumbers);
+        console.log(phoneBook);
+
+/**
+ * Irj fuggvenyt ami kap egy nevet es egy telefonszamot parameterkent
+ * es hozzadja a telefonkonyvhoz az uj bejegyzest { name: string, mobile: number }
+ * A telefonkonyv amibe kell rakni a bejegyzest legyen a fuggveny elso parametere, aztan a nev, aztan a telefonszam
+ *
+ * Visszateresti ertek legyen az ujonnan letrehozott bejegyzes
+ */
+        function add(telePhoneBook, name, mobile) {
+            let person = {name: name, phonenumber: mobile}
+            if (mobile === undefined){
+                return null
+            }else{
+            telePhoneBook.push(person);
+            return person; 
+            }
+        }
+        console.log(add(phoneBook, 'Eszter', 36305856214))
+
+         /**
+ * Irj fuggvenyt ami megkeresi a telefonszamhoz tartozo bejegyzest a telefonkonyben.
+ * A fuggveny elso parametere a telefonkonyv amiben keresni kell a masodik a telefonszam amit keresni kell.
+ *
+ * Ha van talalat a visszateresi ertek legyen a bejegyzes
+ * Ha nincs talalat a visszateres legyen null
+ */
+
+        function findByMobile(telePhoneBook, mobile) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(mobile === telePhoneBook[i].phonenumber){
+                    return telePhoneBook[i];
+                }  
+            }
+            return null;
+        }
+        console.log(findByMobile(phoneBook, 36305856214));
+/**
+ * Irj fuggvenyt ami megkeresi a telefonszamhoz tartozo bejegyzest a telefonkonyben.
+ * A fuggveny elso parametere a telefonkonyv amiben keresni kell a masodik a telefonszam amit keresni kell.
+ *
+ * Ha van talalat a visszateresi ertek legyen a bejegyzes indexxe
+ * Ha nincs talalat a visszateres legyen null
+ */
+        function indexByMobile(telePhoneBook, mobile) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                    if(mobile === telePhoneBook[i].phonenumber){
+                        return i;
+                    }  
+                }
+                    return -1;
+        }
+        console.log(indexByMobile(phoneBook, 36305856214))
+
+        function indexByName(telePhoneBook, name) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                    if(name === telePhoneBook[i].name){
+                        return i;
+                    }  
+                }
+                    return -1;
+        }
+        console.log(indexByName(phoneBook, 'Eszter'))
+       
+        //generic find
+       /* function find(telePhoneBook, value){
+            
+                if(typeof value === 'string'){
+                    return indexByMobile(); //ide még kell a paraméterek
+                } else if(typeof value === 'number'){
+                    return indexByName();
+                }
+            
+            
+        }
+        console.log(find(phoneBook, 'Eszter'));
+        console.log(find(phoneBook, 36305856214));*/
+
+/**
+ * Irj fuggvenyt ami kap egy telefonszamot es kitorli a hozza tartozo bejegyzest
+ * A fuggveny elso parametere a telefonkonyv amibol torolni kell a masodik a telefonszam amit keresni kell.
+ *
+ * Segitseg: indexByMobile, splice
+ *
+ * A visszateresi ertek legyen a kitorolt bejegyzes,
+ * ha a bejegyzes nem letezett, a visszateresi ertek legyen null
+ */
+    /*    function remove(telePhoneBook, mobile) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(mobile === telePhoneBook[i].phonenumber){
+                    return telePhoneBook.splice(i);
+                }
+            }
+            return null;
+        }
+        console.log(remove(phoneBook, 36305856214))
+*/
+        /**
+ * Irj fuggvenyt ami megkeresi az osszes bejegyzest a telefonkonyvben az atadott nevhez.
+ * A fuggveny elso parametere a telefonkonyv amiben keresni kell a masodik a nev amit keresni kell.
+ *
+ * Ha van talalat a visszateresi ertek legyen a bejegyzesek tombje
+ * Ha nincs talalat a visszateres legyen ures tomb
+ */
+        add(phoneBook, 'Eszter', 36301234567);
+        add(phoneBook, 'Eszter', 36304567891);
+
+        function filterByName(telePhoneBook, name) {
+            let person = [];
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(name === telePhoneBook[i].name){
+                    person.push(telePhoneBook[i]);
+                    continue;
+                }
+            }
+            return person;
+        }
+        console.log(filterByName(phoneBook, 'Olivér'));
+        console.log(filterByName(phoneBook, 'Eszter'));
+/**
+ * Irj fuggvenyt ami hozzaad egy uj mezot egy letezo bejegyzeshez
+ * Bemeneti erteknek kapjon egy telefonkonyvet, egy telefonszamot, az uj mezo nevet, es az uj mezo erteket
+ * Ne csinaljon semmt, ha a bejegyzes nem letezik, vagy ha mar van ilyen mezo a bejegyzesen
+ *
+ * Pl: egy email cimet szeretnenk hozzaadni egy bejegyzeshez
+ * addField(phoneBook, 3630123456, 'email', 'email@example.com')
+ *
+ * Ha sikerult hozzaadni terjen vissza a bejegyzessel
+ * Ha nem sikerult terjen vissza null-lal.
+ */
+        function addField(telePhoneBook, mobile, field, value) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(mobile === telePhoneBook[i].phonenumber){
+                    telePhoneBook[i].field = value; //nem nevezi áta fieldet
+                    return telePhoneBook[i];
+                }
+            }
+            return null;
+        }
+        console.log(addField(phoneBook, 36305856214, 'email', 'email@example.com'))
+    </script>
+</body>
+</html>
