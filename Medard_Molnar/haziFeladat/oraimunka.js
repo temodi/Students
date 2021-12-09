@@ -88,7 +88,7 @@
 
 // function indexOf(array, search) {
 //     for (let i = 0; i < array.length; i++) {
-//         if (array[i] == search) return i        
+//         if (array[i] == search) return i
 //     }
 // }
 
@@ -97,6 +97,9 @@
 // let array = [1, 2, 3, 4, 5, 6, 7, 8]
 
 
+function eldontes(array, search) {
+    if (array.includes(search)) return true;
+    else return false;
 
 // function plusz(array, plussz) {
 //     let vegeredmeny = []
