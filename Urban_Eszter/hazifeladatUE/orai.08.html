@@ -10,6 +10,8 @@
     <script>
         let myPhoneNumbers = [3630792765, 3630369549, 3620797249, 3670129465, 3630735165, 3630799685, 3630294765, 3630739572, 3630792388, 3630792947, 3630798965, 3630799284, 3630793325, 3630799685, 3630194265,];
         let myNames = ['Bandobras Underhill', 'Robin Gardner', 'Isembold Whitfoot', 'Donnamira Galbassi', 'Bungo Baggins', 'Will Sandyman', 'Isengrim Proudfoot', 'Frodo Baggins', 'Amaranth Gaukrogers', 'Trahand Bunce', 'Will Sandyman', 'Halfred Goodchild', 'Bilbo Baggins', 'Will Sandyman', 'Belba Sandheaver'];
+        let emails = ['paulnoel21@agung002.com', 'weegrah1@eeothno.com', 'johnjohn69@hungta2.com', 'johnjohn69@hungta2.com', 'yuzhakova1960@hungta2.com', 'yuzhakova1960@hungta2.com', 'lemonkakiska@cggup.com', 'lemonkakiska@cggup.com', 'bd8axwy@cuendita.com', 'bd8axwy@cuendita.com', 'gasg@supok.site', 'gasg@supok.site', 'zaqman@pianoxltd.com', 'zaqman@pianoxltd.com'];
+        
         function telephoneBookAdder(names, phoneNumbers){
             let telephoneBook = [];
             for(let i = 0; i < names.length; i++){
@@ -56,6 +58,16 @@
             return null;
         }
         console.log(findByMobile(phoneBook, 36305856214));
+
+       /* function findByName(telePhoneBook, name) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(name === telePhoneBook[i].name){
+                    return telePhoneBook[i];
+                }  
+            }
+            return null;
+        }
+        console.log(findByMobile(phoneBook, 'Eszter'));*/
 /**
  * Irj fuggvenyt ami megkeresi a telefonszamhoz tartozo bejegyzest a telefonkonyben.
  * A fuggveny elso parametere a telefonkonyv amiben keresni kell a masodik a telefonszam amit keresni kell.
@@ -84,12 +96,12 @@
         console.log(indexByName(phoneBook, 'Eszter'))
        
         //generic find
-       /* function find(telePhoneBook, value){
+      /* function find(telePhoneBook, value){
             
                 if(typeof value === 'string'){
-                    return indexByMobile(); //ide még kell a paraméterek
+                    return indexByMobile(telePhoneBook, value);
                 } else if(typeof value === 'number'){
-                    return indexByName();
+                    return indexByName(telePhoneBook, value);
                 }
             
             
@@ -116,6 +128,16 @@
         }
         console.log(remove(phoneBook, 36305856214))
 */
+        function remove(phoneBook, mobile){
+            let index = indexByMobile(phoneBook, mobile); //mivel van már ilyen keresésünk
+            if (index > -1){
+                //let removedEntry = phoneBook[index]; return ezzel
+                return phoneBook.splice(index, 1);
+                
+            } 
+                return null
+                
+        }
         /**
  * Irj fuggvenyt ami megkeresi az osszes bejegyzest a telefonkonyvben az atadott nevhez.
  * A fuggveny elso parametere a telefonkonyv amiben keresni kell a masodik a nev amit keresni kell.
@@ -131,7 +153,6 @@
             for(let i = 0; i < telePhoneBook.length; i++){
                 if(name === telePhoneBook[i].name){
                     person.push(telePhoneBook[i]);
-                    continue;
                 }
             }
             return person;
@@ -152,13 +173,166 @@
         function addField(telePhoneBook, mobile, field, value) {
             for(let i = 0; i < telePhoneBook.length; i++){
                 if(mobile === telePhoneBook[i].phonenumber){
-                    telePhoneBook[i].field = value; //nem nevezi áta fieldet
-                    return telePhoneBook[i];
-                }
+                    if(telePhoneBook[i][field] === value){ 
+                        return null;
+                    } else {
+                        telePhoneBook[i][field] = value; 
+                        return telePhoneBook[i];
+                    }
+                } 
             }
             return null;
         }
-        console.log(addField(phoneBook, 36305856214, 'email', 'email@example.com'))
+        console.log(addField(phoneBook, 36305856214, 'email', 'email@example.com'));
+        console.log(addField(phoneBook, 36305856214, 'email', 'email@example.com'));
+
+/**
+ * Irj fuggvenyt ami modosit egy letezo mezot egy letezo bejegyzesen
+ * Bemeneti erteknek kapjon egy telefonkonyvet, egy telefonszamot, a mezo nevet, es a mezo erteket
+ * Ne csinaljon semmt,
+ *  - ha a bejegyzes nem letezik,
+ *  - ha telefonszamot szeretnenk modositani,
+ *  - ha nincs ilyen mezo a bejegyzesen
+ *
+ * Pl: egy email cimet szeretnenk modositeni egy bejegyzeshez
+ * modify(3630123456, 'name', 'Mekk Elek')
+ *
+ * Ha sikerult hozzaadni terjen vissza a bejegyzessel
+ * Ha nem sikerult terjen vissza null-lal.
+ */
+        function modify(telePhoneBook, mobile, field, value) {
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(mobile === telePhoneBook[i].phonenumber){
+                    if (telePhoneBook[i][field] === undefined || field === 'phonenumber' || telePhoneBook[i] === undefined){
+                        return null
+                    } else {
+                        telePhoneBook[i][field] = value;
+                        return telePhoneBook[i]
+                    }
+                }
+            }
+        }
+        console.log(modify(phoneBook, 36305856214, 'email', 'myemail@example.com'));
+
+// Irj fuggvenyt ami megformaz egy telefonszamot
+// "+36 30 1234 567" formatumban es a formazott telefonszammal ter vissza
+// Segitseg:
+//  - a string indexelheto, mint egy tomb
+//  - a slice(start, end) metodus segithet
+        function formatPhoneNumber(mobile) {
+            let phonenumber = mobile.toString();
+            let firstPart = phonenumber.slice(0, 2);
+            let secondPart = phonenumber.slice(2, 4);
+            let thirdPart = phonenumber.slice(4, 8);
+            let fourthPart = phonenumber.slice(8, 11);
+            let space = ' ';
+            let number = ''
+            return mobile = number.concat('+' + firstPart + space + secondPart + space + thirdPart + space + fourthPart);
+            
+        }
+        console.log(formatPhoneNumber(36305856214));
+
+/**
+ * FELADAT:
+ * Irj programot ami kiirja az ossze Baggins csaladnevu hobbitot es telefonszamanak formazott alakjat a konzolra.
+ */
+        function filter(telePhoneBook, name) {
+            let person = [];
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(telePhoneBook[i].name.includes(name)){
+                    person.push(telePhoneBook[i]);
+                }
+            }
+            return person;
+        }  
+        function formatNumber(array){
+            for(let i = 0; i < array.length; i++){
+                let phonenumber = array[i].phonenumber.toString();
+                let firstPart = phonenumber.slice(0, 2);
+                let secondPart = phonenumber.slice(2, 4);
+                let thirdPart = phonenumber.slice(4, 8);
+                let fourthPart = phonenumber.slice(8, 11);
+                let space = ' ';
+                let mobile = ''
+                array[i].phonenumber = mobile.concat('+' + firstPart + space + secondPart + space + thirdPart + space + fourthPart)
+                
+            }
+            return array;
+        }
+        console.log(formatNumber(filter(phoneBook, 'Baggins')));
+      
+
+/**
+ * FELADAT:
+ * Irj programot ami az ugyan olyan telefonszammal rendelkezok kozul csak egyet hagy meg
+ * Nehez!
+ */
+let duplicates_test = [
+  { name: 'Mr. 1', mobile: 36301234567 },
+  { name: 'Mr. 2', mobile: 36301234567 },
+  { name: 'Mr. 3', mobile: 36301234567 },
+  { name: 'Ms. 1', mobile: 36301234568 },
+  { name: 'Ms. 2', mobile: 36301234568 },
+  { name: 'Ms. 3', mobile: 36301234568 },
+  { name: 'Mrs. 1', mobile: 36301234569 }
+];
+/*function reduce(array){
+    for(let i = 0; i < array.length; i++){
+        let reducedNumber  = [];
+        for(let m = 0; m < reducedNumber.length; m++){
+            if(reducedNumber[m].mobile !== array[i].mobile){
+                reducedNumber.push(array[i])
+            }
+        }
+        return reducedNumber;
+    }
+}
+console.log(reduce(duplicates_test))*/ //ez még nem jó
+
+
+
+/*Callbackes hazi: Irjatok at a findByName es filterByName fuggvenyeket, hogy masodik parameternek name helyett egy callback fuggvenyt fogadjanak.
+A callback kapja meg parameternek az aktulis elemet a ciklusbol es terjen vissza true-val ha teljesul benne a feltetel false-val egyebkent.
+(Ez a callback fogja lecserelni az if-ben levo feltetelt)
+
+masik hazi a sima filterByName*/
+        
+        function findBy(telePhoneBook, callback){
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(callback(telePhoneBook[i])){
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log(findBy(phoneBook, function (note){return note.name === 'Eszter'}));
+
+
+
+
+        function filterByNameCallback(telePhoneBook, predicate) {
+            let person = [];
+            for(let i = 0; i < telePhoneBook.length; i++){
+                //if(name === telePhoneBook[i].name)
+                if(predicate(telePhoneBook[i].name)){
+                    person.push(telePhoneBook[i]);
+                }
+            }
+            return person;
+        }
+        filterByNameCallback(phoneBook, function(name){return name === 'Eszter'});
+
+        function filterBy(telePhoneBook, predicate) {
+            let person = [];
+            for(let i = 0; i < telePhoneBook.length; i++){
+                if(predicate(telePhoneBook[i])){
+                    person.push(telePhoneBook[i]);
+                }
+            }
+            return person;
+        }
+        console.log(filterBy(phoneBook, function (note){return note.name === 'Eszter'}));
+        filterBy(phoneBook, function (note){return note.phonenumber === 36305856214});
     </script>
 </body>
 </html>
