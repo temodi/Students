@@ -7,7 +7,7 @@
      let nyertes = [];
      let joker = []
      for (let i = 0; i < lotto[0]; i++) {
-         nyertes.push(Math.floor(Math.random() * lotto[2] + 1))
+         nyertes.push(Math.floor(Math.random() * lotto[1] + 1))
 
      }
      if (lotto == euroM) {
