@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let phoneNumbers = [3630792765, 3630369549, 3620797249, 3670129465, 3630735165, 3630799685, 3630294765, 3630739572, 3630792388, 3630792947, 3630798965, 3630799284, 3630793325, 3630799685, 3630194265,];
+        let names = ['Bandobras Underhill', 'Robin Gardner', 'Isembold Whitfoot', 'Donnamira Galbassi', 'Bungo Baggins', 'Will Sandyman', 'Isengrim Proudfoot', 'Frodo Baggins', 'Amaranth Gaukrogers', 'Trahand Bunce', 'Will Sandyman', 'Halfred Goodchild', 'Bilbo Baggins', 'Will Sandyman', 'Belba Sandheaver'];
+
+        // Emailek, amikkel nem kell semmit csinalni egyelore
+        let emails = ['paulnoel21@agung002.com', 'weegrah1@eeothno.com', 'johnjohn69@hungta2.com', 'johnjohn69@hungta2.com', 'yuzhakova1960@hungta2.com', 'yuzhakova1960@hungta2.com', 'lemonkakiska@cggup.com', 'lemonkakiska@cggup.com', 'bd8axwy@cuendita.com', 'bd8axwy@cuendita.com', 'gasg@supok.site', 'gasg@supok.site', 'zaqman@pianoxltd.com', 'zaqman@pianoxltd.com'];
+
+
+        function createPhoneBook(names, phoneNumbers) {
+            let phoneBook = [];
+            for (let i = 0; i < names.length; i++) {
+                let person = {
+                    name: names[i],
+                    mobile: phoneNumbers[i]
+                }
+                phoneBook.push(person)
+
+            } return phoneBook
+        }
+        console.log(createPhoneBook(names, phoneNumbers))
+
+        let myPhoneBook = createPhoneBook(names, phoneNumbers);
+
+        function add(myPhoneBook, nev, mobilTelefonSzam) {
+            let person = {
+                name: nev,
+                mobile: mobilTelefonSzam
+            };
+            myPhoneBook.push(person)
+            return person
+
+
+        }
+        add(myPhoneBook, "Oliver Kovacs", 36301234567)
+        console.log(myPhoneBook)
+
+        function findByMobile(myPhoneBook, mobile) {
+            for (let i = 0; i < myPhoneBook.length; i++) {
+                if (myPhoneBook[i].mobile === mobile) {
+                    return myPhoneBook[i];
+                }
+            } return null
+        }
+        console.log(findByMobile(myPhoneBook, 36301234567));
+        console.log(findByMobile(myPhoneBook, 3630213452345))
+
+
+        function indexByMobile(myPhoneBook, mobile) {
+            for (let i = 0; i < myPhoneBook.length; i++) {
+                if (myPhoneBook[i].mobile === mobile) {
+                    return i
+                }
+            } return -1
+        }
+        console.log(indexByMobile(myPhoneBook, 36301234567));
+        console.log(indexByMobile(myPhoneBook, 3630324534535));
+        /////////////////////////////////////////////////////////////////////
+
+
+        function filterByName(myPhoneBook, name) {
+            let tomb_name = []
+            for (let i = 0; i < myPhoneBook.length; i++) {
+                if (myPhoneBook[i].name === name) {
+                    tomb_name.push(myPhoneBook[i])
+
+                }
+            } return tomb_name
+        }
+
+
+        add(myPhoneBook, "Marcus Vidranyi", 23423534634);
+        add(myPhoneBook, "Marcus Vidranyi", 23423534634);
+
+        console.log(filterByName(myPhoneBook, "Marcus Vidranyi"));
+        /////////////////////////////////////////////////////////////////////
+
+        filterByName(myPhoneBook, function (bejegyzes) { return bejegyzes.name === "Oliver Kovacs" })
+
+        function findBy(myPhoneBook, predicate) {
+            for (let i = 0; i < myPhoneBook.length; i++) {
+                if (predicate(myPhoneBook[i])) {
+                    return myPhoneBook[i]
+                }
+            } return null
+        }
+
+        console.log(findBy(myPhoneBook, function (bejegyzes) { return bejegyzes.name === "Oliver Kovacs"}));
+
+        //////////////////////////////////////////////////////////////////////
+
+
+        function remove(myPhoneBook, mobile){
+            for(let i = 0; i < myPhoneBook.length; i++){
+                if (myPhoneBook[i].mobile === mobile){
+                    
+                   return myPhoneBook.splice(i, 1)
+                    
+                }
+            }
+        }
+
+
+        console.log(remove(myPhoneBook, 36301234567));
+        ///////////////////////////////////////////////////////////////////////////
+
+
+        function addField(myPhoneBook, mobile, field, value){
+            for(let i = 0; i < myPhoneBook.length; i++){
+                if (myPhoneBook[i].mobile === mobile){
+                    myPhoneBook[i].email = value;
+                    return myPhoneBook
+                }
+            }
+        }
+        
+        console.log(addField(myPhoneBook, 23423534634, "email", "email@valami.com"));
+        //////////////////////////////////////////////////////////////////////////////////
+        
+        function modify(myPhoneBook, mobile, field, value){
+            if (field === "mobil"){
+                return null;
+            }
+            for(let i = 0; i < myPhoneBook.length; i++){
+                if (myPhoneBook[i].email === value){
+                    myPhoneBook[i].name = "Mekk Elek";
+                    return myPhoneBook[i];
+                }
+            }return null
+
+        }
+
+        console.log(modify(myPhoneBook, 23423534634, "email", "email@valami.com"));
+        ////////////////////////////////////////////////////////////////////////////////////
+
+        function formatPhoneNumber(mobile) {
+            mobile = String(mobile);
+            return "+" + mobile.slice(0, 2) + " " + mobile.slice(2, 4) + " " + mobile.slice(4, 7) + " " + mobile.slice(7)
+        }
+        console.log(formatPhoneNumber(3630123456));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
