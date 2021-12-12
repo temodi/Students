@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+Az NBA 2003-as évében kötött szerződéseiről tartalmaz információt. A játékosok csapata, neve, éves fizetése (dollárban), 
+és a szerződés éveinek száma olvasható a szöveges állományban.
+
+ - Írjuk ki játékosonként a szerződésben rögzített évekre számolt összes jövedelmet!
+ - Melyik játékos kapja a legnagyobb pénzt egy szezonra?
+ - Adjuk meg csapatonként a játékosokra költött éves pénzösszeget!
+ - Melyik csapatban van a legnagyobb különbség a maximális és minimális fizetés között?
+ - Melyik csapatban a legalacsonyabb az átlagfizetés?
+ - Írjuk ki minden csapat "legdrágább" játékosának nevét!
+ - Mennyi az átlagfizetés az NBA-ben?
+ - Melyik csapatban hányan keresnek az átlag felett?
+ - Rendezzük az adathalmazt éves fizetés szerint csökkenően!
+*/
+
+
+
+// csapat neve, játékosok neve,  éves fizetés ($), szerződés éveinek száma
+const szerzodesek = [
+  ["Atlanta Hawks","Abdur-Rahim, Shareef",13500000,6],
+  ["Atlanta Hawks","Brandon, Terrell",11100000,6],
+  ["Atlanta Hawks","Ratliff, Theo",10156250,7],
+  ["Atlanta Hawks","Henderson, Alan",7682188,7],
+  ["Atlanta Hawks","Terry, Jason",6825000,3],
+  ["Atlanta Hawks","Mohammed, Nazr",5000000,5],
+  ["Atlanta Hawks","Crawford, Chris",3000000,6],
+  ["Atlanta Hawks","Jackson, Stephen",1000000,2],
+  ["Atlanta Hawks","Glover, Dion",1000000,1],
+  ["Atlanta Hawks","Diaw, Boris",980280,4],
+  ["Atlanta Hawks","Dickau, Dan",835200,4],
+  ["Atlanta Hawks","Vaughn, Jacque",813000,1],
+  ["Atlanta Hawks","Ekezie, Obinna",638679,1],
+  ["Atlanta Hawks","Nailon, Lee",638679,1],
+  ["Atlanta Hawks","Hansen, Travis",366931,1],
+  ["Boston Celtics","Baker, Vin",13500000,7],
+  ["Boston Celtics","Pierce, Paul",11326219,6],
+  ["Boston Celtics","LaFrentz, Raef",8178750,7],
+  ["Boston Celtics","Mills, Chris",6600000,7],
+  ["Boston Celtics","Williams, Eric",5540000,6],
+  ["Boston Celtics","Battie, Tony",4400000,6],
+  ["Boston Celtics","Brown, Kedrick",1757640,4],
+  ["Boston Celtics","Jones, Jumaine",1500000,3],
+  ["Boston Celtics","Welsch, Jiri",1326600,4],
+  ["Boston Celtics","Banks, Marcus",1249500,4],
+  ["Boston Celtics","McCarty, Walter",1100000,3],
+  ["Boston Celtics","Blount, Mark",950000,2],
+  ["Boston Celtics","Perkins, Kendrick",678600,4],
+  ["Boston Celtics","James, Mike",638679,1],
+  ["Boston Celtics","Hunter, Brandon",366931,2],
+  ["Chicago Bulls","Rose, Jalen",13279500,7],
+  ["Chicago Bulls","Robinson, Eddie",6246950,6],
+  ["Chicago Bulls","Pippen, Scottie",4917000,2],
+  ["Chicago Bulls","Marshall, Donyell",4545000,3],
+  ["Chicago Bulls","Chandler, Tyson",3804360,4],
+  ["Chicago Bulls","Fizer, Marcus",3727000,4],
+  ["Chicago Bulls","Williams, Jay",3710000,4],
+  ["Chicago Bulls","Curry, Eddy",3080000,4],
+  ["Chicago Bulls","Crawford, Jamal",2578000,4],
+  ["Chicago Bulls","Hinrich, Kirk",2098600,4],
+  ["Chicago Bulls","Blount, Corie",1600000,2],
+  ["Chicago Bulls","Gill, Kendall",1070000,1],
+  ["Chicago Bulls","Mason, Roger",563679,3],
+  ["Chicago Bulls","Baxter, Lonny",563679,2],
+  ["Chicago Bulls","Johnson, Linton",366931,1],
+  ["Cleveland Cavaliers","Ilgauskas, Zydrunas",13500000,6],
+  ["Cleveland Cavaliers","Davis, Ricky",5000000,6],
+  ["Cleveland Cavaliers","Stewart, Michael",4480000,6],
+  ["Cleveland Cavaliers","Miles, Darius",4131000,4],
+  ["Cleveland Cavaliers","James, LeBron",4018920,4],
+  ["Cleveland Cavaliers","Mihm, Chris",2809500,4],
+  ["Cleveland Cavaliers","Wagner, Dajuan",2471280,4],
+  ["Cleveland Cavaliers","Newble, Ira",2458500,5],
+  ["Cleveland Cavaliers","Ollie, Kevin",2458500,5],
+  ["Cleveland Cavaliers","Diop, DeSagana",2188840,4],
+  ["Cleveland Cavaliers","McCoy, Jelani",751179,1],
+  ["Cleveland Cavaliers","Sundov, Bruno",751179,2],
+  ["Cleveland Cavaliers","Boozer, Carlos",563679,2],
+  ["Cleveland Cavaliers","Bremer, JR",563679,1],
+  ["Cleveland Cavaliers","Kapono, Jason",366931,1],
+  ["Dallas Mavericks","Walker, Antoine",13500000,6],
+  ["Dallas Mavericks","Finley, Michael",13281250,7],
+  ["Dallas Mavericks","Nowitzki, Dirk",11326219,6],
+  ["Dallas Mavericks","Jamison, Antawn",11326200,6],
+  ["Dallas Mavericks","Abdul-Wahad, Tariq",6187500,7],
+  ["Dallas Mavericks","Nash, Steve",5750000,6],
+  ["Dallas Mavericks","Fortson, Danny",5428571,7],
+  ["Dallas Mavericks","Bradley, Shawn",3500000,7],
+  ["Dallas Mavericks","Najera, Eduardo",3428572,6],
+  ["Dallas Mavericks","Delk, Tony",2925000,6],
+  ["Dallas Mavericks","Best, Travis",938679,1],
+  ["Dallas Mavericks","Howard, Josh",773440,4],
+  ["Dallas Mavericks","Stefansson, Jon",366931,1],
+  ["Dallas Mavericks","Daniels, Marquis",366931,1],
+  ["Denver Nuggets","Camby, Marcus",7250000,6],
+  ["Denver Nuggets","Miller, Andre",6400000,6],
+  ["Denver Nuggets","Anthony, Carmelo",3229200,4],
+  ["Denver Nuggets","Barry, Jon",3000000,1],
+  ["Denver Nuggets","Lenard, Voshon",2750000,1],
+  ["Denver Nuggets","Tskitishvili, Nikoloz",2721000,4],
+  ["Denver Nuggets","Boykins, Earl",2500000,5],
+  ["Denver Nuggets","Hilario, Nene",2256000,4],
+  ["Denver Nuggets","White, Rodney",1947600,4],
+  ["Denver Nuggets","Bowen, Ryan",1250000,3],
+  ["Denver Nuggets","Pope, Mark",689000,1],
+  ["Denver Nuggets","Andersen, Chris",639000,1],
+  ["Denver Nuggets","Trepagnier, Jeff",639000,1],
+  ["Denver Nuggets","Marcus, Chris",367000,2],
+  ["Denver Nuggets","Elson, Francisco",366931,3],
+  ["Detroit Pistons","Hamilton, Richard",6500000,7],
+  ["Detroit Pistons","Sura, Bob",6167000,6],
+  ["Detroit Pistons","Wallace, Ben",5500000,6],
+  ["Detroit Pistons","Williamson, Corliss",5000000,6],
+  ["Detroit Pistons","Billups, Chauncey",5000000,6],
+  ["Detroit Pistons","Rebraca, Zeljko",4200000,3],
+  ["Detroit Pistons","Campbell, Elden",4000000,2],
+  ["Detroit Pistons","Atkins, Chucky",3900000,6],
+  ["Detroit Pistons","Milicic, Darko",3595800,4],
+  ["Detroit Pistons","Hunter, Lindsey",3300000,7],
+  ["Detroit Pistons","Davis, Hubert",2895000,4],
+  ["Detroit Pistons","Okur, Mehmet",1100000,2],
+  ["Detroit Pistons","Prince, Tayshaun",971160,4],
+  ["Detroit Pistons","Ham, Darvin",813679,1],
+  ["Golden State Warriors","Van Exel, Nick",10912500,7],
+  ["Golden State Warriors","Dampier, Erick",7842000,7],
+  ["Golden State Warriors","Johnson, Avery",5446000,3],
+  ["Golden State Warriors","Robinson, Clifford",4740000,3],
+  ["Golden State Warriors","Foyle, Adonal",4400000,4],
+  ["Golden State Warriors","Dunleavy, Mike",3332500,4],
+  ["Golden State Warriors","Claxton, Speedy",3000000,3],
+  ["Golden State Warriors","Eschmeyer, Evan",2800000,6],
+  ["Golden State Warriors","Richardson, Jason",2696000,4],
+  ["Golden State Warriors","Pietrus, Mickael",1661280,4],
+  ["Golden State Warriors","Murphy, Troy",1507000,4],
+  ["Golden State Warriors","Cheaney, Calbert",1070000,1],
+  ["Golden State Warriors","Jones, Popeye",1070000,1],
+  ["Golden State Warriors","Cardinal, Brian",663679,1],
+  ["Golden State Warriors","Sanchez, Pepe",663679,2],
+  ["Houston Rockets","Francis, Steve",10067750,6],
+  ["Houston Rockets","Taylor, Maurice",7800000,6],
+  ["Houston Rockets","Cato, Kelvin",7344000,6],
+  ["Houston Rockets","Mobley, Cuttino",5394000,6],
+  ["Houston Rockets","Ming, Yao",4147560,4],
+  ["Houston Rockets","Norris, Moochie",3600000,6],
+  ["Houston Rockets","Amaechi, John",2610000,4],
+  ["Houston Rockets","Piatkowski, Eric",2460000,3],
+  ["Houston Rockets","Jackson, Jim",2225000,3],
+  ["Houston Rockets","Nachbar, Bostjan",1396450,4],
+  ["Houston Rockets","Padgett, Scott",688679,1],
+  ["Houston Rockets","Griffin, Adrian",688679,2],
+  ["Houston Rockets","Davis, Ben",688679,1],
+  ["Houston Rockets","Wilks, Mike",563679,1],
+  ["Houston Rockets","Braggs, Torraye",366961,1],
+  ["Indiana Pacers","O'Neal, Jermaine",13140000,7],
+  ["Indiana Pacers","Croshere, Austin",7610000,7],
+  ["Indiana Pacers","Harrington, Al",5690000,4],
+  ["Indiana Pacers","Bender, Jonathan",5680000,4],
+  ["Indiana Pacers","Pollard, Scot",5310000,6],
+  ["Indiana Pacers","Artest, Ron",5200000,6],
+  ["Indiana Pacers","Miller, Reggie",5000000,2],
+  ["Indiana Pacers","Foster, Jeff",3800000,6],
+  ["Indiana Pacers","Jones, Fred",1506000,4],
+  ["Indiana Pacers","Anderson, Kenny",1070000,1],
+  ["Indiana Pacers","Brezec, Primoz",861600,4],
+  ["Indiana Pacers","Tinsley, Jamaal",861600,4],
+  ["Indiana Pacers","Johnson, Anthony",813679,2],
+  ["Indiana Pacers","Brewer, Jamison",638679,3],
+  ["Indiana Pacers","Jones, James",366931,1],
+  ["Los Angeles Clippers","Brand, Elton",10960000,5],
+  ["Los Angeles Clippers","Maggette, Corey",5600000,6],
+  ["Los Angeles Clippers","Drobnjak, Predrag",2500000,4],
+  ["Los Angeles Clippers","Kaman, Chris",2395000,4],
+  ["Los Angeles Clippers","Dooling, Keyon",2256444,4],
+  ["Los Angeles Clippers","Wang, Zhizhi",2090000,3],
+  ["Los Angeles Clippers","Wilcox, Chris",2060000,4],
+  ["Los Angeles Clippers","Jaric, Marko",1900000,4],
+  ["Los Angeles Clippers","Richardson, Quentin",1806000,4],
+  ["Los Angeles Clippers","Ely, Melvin",1629000,4],
+  ["Los Angeles Clippers","Rice, Glen",1500000,1],
+  ["Los Angeles Clippers","Polynice, Olden",1070000,1],
+  ["Los Angeles Clippers","House, Eddie",775000,2],
+  ["Los Angeles Clippers","Simmons, Bobby",638679,1],
+  ["Los Angeles Clippers","Moore, Josh",366931,1],
+  ["Los Angeles Lakers","O'Neal, Shaquille",26517858,10],
+  ["Los Angeles Lakers","Bryant, Kobe",13498000,6],
+  ["Los Angeles Lakers","Payton, Gary",4917000,2],
+  ["Los Angeles Lakers","Fox, Rick",4550000,6],
+  ["Los Angeles Lakers","George, Devean",4545000,4],
+  ["Los Angeles Lakers","Fisher, Derek",3000000,7],
+  ["Los Angeles Lakers","Malone, Karl",1500000,2],
+  ["Los Angeles Lakers","Medvedenko, Stanislav",1500000,2],
+  ["Los Angeles Lakers","Rush, Kareem",1096000,4],
+  ["Los Angeles Lakers","Russell, Bryon",1070000,1],
+  ["Los Angeles Lakers","Grant, Horace",1070000,1],
+  ["Los Angeles Lakers","Cook, Brian",752000,4],
+  ["Los Angeles Lakers","Sampson, Jamal",563679,1],
+  ["Los Angeles Lakers","Pargo, Jannero",563679,2],
+  ["Los Angeles Lakers","Walton, Luke",366931,2],
+  ["Memphis Grizzlies","Person, Wesley",7700000,7],
+  ["Memphis Grizzlies","Wright, Lorenzen",6600000,7],
+  ["Memphis Grizzlies","Williams, Jason",6187500,6],
+  ["Memphis Grizzlies","Outlaw, Bo",5955000,5],
+  ["Memphis Grizzlies","Posey, James",4917000,4],
+  ["Memphis Grizzlies","Swift, Stromile",4592000,4],
+  ["Memphis Grizzlies","Gasol, Pau",3417000,4],
+  ["Memphis Grizzlies","Miller, Mike",3380000,6],
+  ["Memphis Grizzlies","Battier, Shane",2533440,4],
+  ["Memphis Grizzlies","Tsakalidis, Jake",1580000,4],
+  ["Memphis Grizzlies","Watson, Earl",1325000,3],
+  ["Memphis Grizzlies","Bell, Troy",1285440,4],
+  ["Memphis Grizzlies","Humphrey, Ryan",1143360,4],
+  ["Memphis Grizzlies","Jones, Dahntay",1063680,4],
+  ["Memphis Grizzlies","Smith, Theron",366931,2],
+  ["Miami Heat","Jones, Eddie",12320000,7],
+  ["Miami Heat","Grant, Brian",12234063,7],
+  ["Miami Heat","Odom, Lamar",9960000,6],
+  ["Miami Heat","Wade, Dwyane",2636400,4],
+  ["Miami Heat","Butler, Caron",1795220,4],
+  ["Miami Heat","Walker, Samaki",1070000,1],
+  ["Miami Heat","Coles, Bimbo",1070000,1],
+  ["Miami Heat","Wallace, John",813679,1],
+  ["Miami Heat","Alston, Rafer",688679,1],
+  ["Miami Heat","Allen, Malik",638679,3],
+  ["Miami Heat","Woods, Loren",638679,1],
+  ["Miami Heat","Butler, Rasual",563670,2],
+  ["Miami Heat","Beasley, Jerome",366931,2],
+  ["Miami Heat","Haslem, Udonis",366931,2],
+  ["Miami Heat","Penney, Kirk",366931,1],
+  ["Milwaukee Bucks","Thomas, Tim",11825000,6],
+  ["Milwaukee Bucks","Kukoc, Toni",9594364,4],
+  ["Milwaukee Bucks","Smith, Joe",5446000,6],
+  ["Milwaukee Bucks","Redd, Michael",3000000,4],
+  ["Milwaukee Bucks","Przybilla, Joel",2373000,4],
+  ["Milwaukee Bucks","Ford, TJ",2002680,4],
+  ["Milwaukee Bucks","Mason, Desmond",1898000,4],
+  ["Milwaukee Bucks","Haislip, Marcus",1547280,4],
+  ["Milwaukee Bucks","Skinner, Brian",1500000,3],
+  ["Milwaukee Bucks","Strickland, Erick",1500000,2],
+  ["Milwaukee Bucks","Santiago, Daniel",638679,1],
+  ["Milwaukee Bucks","Gadzuric, Dan",563679,2],
+  ["Milwaukee Bucks","Jones, Damon",563679,1],
+  ["Minnesota Timberwolves","Garnett, Kevin",28000000,11],
+  ["Minnesota Timberwolves","Sprewell, Latrell",13500000,5],
+  ["Minnesota Timberwolves","Szczerbiak, Wally",8000000,10],
+  ["Minnesota Timberwolves","Cassell, Sam",5250000,3],
+  ["Minnesota Timberwolves","Olowokandi, Michael",4917000,3],
+  ["Minnesota Timberwolves","Johnson, Ervin",4498500,9],
+  ["Minnesota Timberwolves","Hudson, Troy",2475000,3],
+  ["Minnesota Timberwolves","Madsen, Mark",1500000,2],
+  ["Minnesota Timberwolves","Hoiberg, Fred",938679,1],
+  ["Minnesota Timberwolves","Trent, Gary",938679,1],
+  ["Minnesota Timberwolves","Ebi, Ndudi",698800,4],
+  ["Minnesota Timberwolves","Lewis, Quincy",663679,1],
+  ["Minnesota Timberwolves","Hassell, Trenton",638679,1],
+  ["Minnesota Timberwolves","McLeod, Keith",366931,1],
+  ["New Jersey Nets","Kidd, Jason",13152000,6],
+  ["New Jersey Nets","Kittles, Kerry",9266666,6],
+  ["New Jersey Nets","Martin, Kenyon",5128689,4],
+  ["New Jersey Nets","Mourning, Alonzo",4917000,4],
+  ["New Jersey Nets","Rogers, Rodney",3075500,3],
+  ["New Jersey Nets","Williams, Aaron",2925000,6],
+  ["New Jersey Nets","Harris, Lucious",2352941,2],
+  ["New Jersey Nets","Jefferson, Richard",1586000,4],
+  ["New Jersey Nets","Collins, Jason",1227500,4],
+  ["New Jersey Nets","Overton, Doug",1070000,1],
+  ["New Jersey Nets","Armstrong, Brandon",995640,4],
+  ["New Jersey Nets","Planinic, Zoran",816900,4],
+  ["New Jersey Nets","Scalabrine, Brian",788689,2],
+  ["New Jersey Nets","Slay, Tamar",638679,2],
+  ["New Jersey Nets","Brown, Damone",638679,1],
+  ["New Orleans Hornets","Davis, Baron",10067750,6],
+  ["New Orleans Hornets","Mashburn, Jamal",8525000,6],
+  ["New Orleans Hornets","Brown, PJ",8000000,4],
+  ["New Orleans Hornets","Wesley, David",3960000,9],
+  ["New Orleans Hornets","Lynch, George",2800000,7],
+  ["New Orleans Hornets","Armstrong, Darrell",2750000,2],
+  ["New Orleans Hornets","Augmon, Stacey",2400000,3],
+  ["New Orleans Hornets","Alexander, Courtney",2179000,4],
+  ["New Orleans Hornets","Magloire, Jamaal",1726771,3],
+  ["New Orleans Hornets","Drew, Bryce",1300000,3],
+  ["New Orleans Hornets","West, David",1160000,4],
+  ["New Orleans Hornets","Rooks, Sean",1070000,1],
+  ["New Orleans Hornets","Smith, Steve",1070000,1],
+  ["New Orleans Hornets","Traylor, Robert",750000,2],
+  ["New Orleans Hornets","Lang, James",366931,1],
+  ["New York Knicks","Houston, Allan",15937500,6],
+  ["New York Knicks","McDyess, Antonio",13500000,6],
+  ["New York Knicks","Van Horn, Keith",13279000,6],
+  ["New York Knicks","Anderson, Shandon",6700000,6],
+  ["New York Knicks","Ward, Charlie",6030000,6],
+  ["New York Knicks","Eisley, Howard",5845000,7],
+  ["New York Knicks","Weatherspoon, Clarence",5446000,5],
+  ["New York Knicks","Thomas, Kurt",5394000,3],
+  ["New York Knicks","Mutombo, Dikembe",4000000,2],
+  ["New York Knicks","Harrington, Othella",2925500,7],
+  ["New York Knicks","Sweetney, Mike",1840000,4],
+  ["New York Knicks","Doleac, Michael",1500000,2],
+  ["New York Knicks","Williams, Frank",894960,4],
+  ["New York Knicks","Lampe, Maciej",865000,3],
+  ["New York Knicks","Vranes, Slavko",366931,1],
+  ["Orlando Magic","McGrady, Tracy",13279500,7],
+  ["Orlando Magic","Hill, Grant",13279250,7],
+  ["Orlando Magic","Howard, Juwan",4917000,5],
+  ["Orlando Magic","Gooden, Drew",3004500,4],
+  ["Orlando Magic","Garrity, Pat",2643750,6],
+  ["Orlando Magic","DeClercq, Andrew",2458500,2],
+  ["Orlando Magic","Giricek, Gordan",1540000,2],
+  ["Orlando Magic","Lue, Tyronn",1500000,2],
+  ["Orlando Magic","Hunter, Steven",1431000,4],
+  ["Orlando Magic","Gaines, Reece",1127600,4],
+  ["Orlando Magic","Williams, Shammond",751159,1],
+  ["Orlando Magic","Harvey, Donnell",663679,1],
+  ["Orlando Magic","Bogans, Keith",366931,2],
+  ["Orlando Magic","Johnsen, Britton",366931,2],
+  ["Orlando Magic","Pachulia, Zaza",366931,2],
+  ["Philadelphia 76ers","Iverson, Allen",13500000,6],
+  ["Philadelphia 76ers","Robinson, Glenn",10372000,11],
+  ["Philadelphia 76ers","MacCulloch, Todd",5445600,6],
+  ["Philadelphia 76ers","McKie, Aaron",5000000,7],
+  ["Philadelphia 76ers","Snow, Eric",4500000,6],
+  ["Philadelphia 76ers","Thomas, Kenny",4250000,7],
+  ["Philadelphia 76ers","Coleman, Derrick",4000000,3],
+  ["Philadelphia 76ers","Jackson, Marc",3900000,6],
+  ["Philadelphia 76ers","Buckner, Greg",2640000,6],
+  ["Philadelphia 76ers","Williams, Monty",1000000,2],
+  ["Philadelphia 76ers","Dalembert, Samuel",887160,4],
+  ["Philadelphia 76ers","McCaskill, Amal",813679,1],
+  ["Philadelphia 76ers","Salmons, John",721000,4],
+  ["Philadelphia 76ers","Green, Willie",366931,1],
+  ["Philadelphia 76ers","Korver, Kyle",366931,1],
+  ["Phoenix Suns","Hardaway, Anfernee",13500000,7],
+  ["Phoenix Suns","Marbury, Stephon",13500000,6],
+  ["Phoenix Suns","Gugliotta, Tom",11668395,6],
+  ["Phoenix Suns","Marion, Shawn",10067750,6],
+  ["Phoenix Suns","Knight, Brevin",5000000,4],
+  ["Phoenix Suns","Stoudemire, Amare",1899720,4],
+  ["Phoenix Suns","Johnson, Joe",1850000,4],
+  ["Phoenix Suns","Trybanski, Cezary",1600000,3],
+  ["Phoenix Suns","Voskuhl, Jake",1550000,3],
+  ["Phoenix Suns","Cabarkapa, Zarko",1221240,4],
+  ["Phoenix Suns","Williams, Scott",1070000,1],
+  ["Phoenix Suns","Jacobsen, Casey",1011500,4],
+  ["Phoenix Suns","Barbosa, Leandro",674400,4],
+  ["Phoenix Suns","Archibald, Robert",563679,1],
+  ["Portland Trail Blazers","Wallace, Rasheed",16990000,6],
+  ["Portland Trail Blazers","Stoudamire, Damon",14375000,7],
+  ["Portland Trail Blazers","Davis, Dale",9061000,2],
+  ["Portland Trail Blazers","Anderson, Derek",7794000,6],
+  ["Portland Trail Blazers","Wells, Bonzi",7000000,4],
+  ["Portland Trail Blazers","Patterson, Ruben",5435500,6],
+  ["Portland Trail Blazers","McInnis, Jeff",3300000,3],
+  ["Portland Trail Blazers","Randolph, Zach",1172000,4],
+  ["Portland Trail Blazers","Murray, Tracy",1070000,1],
+  ["Portland Trail Blazers","Woods, Qyntel",1053720,4],
+  ["Portland Trail Blazers","Outlaw, Travis",784200,4],
+  ["Portland Trail Blazers","Stepania, Vladimir",688679,2],
+  ["Portland Trail Blazers","Boumtje-Boumtje, Ruben",638679,3],
+  ["Sacramento Kings","Webber, Chris",15937500,7],
+  ["Sacramento Kings","Divac, Vlade",12051500,6],
+  ["Sacramento Kings","Bibby, Mike",9500000,7],
+  ["Sacramento Kings","Miller, Brad",7000000,7],
+  ["Sacramento Kings","Christie, Doug",6500000,5],
+  ["Sacramento Kings","Stojakovic, Predrag",6250000,6],
+  ["Sacramento Kings","Funderburke, Lawrence",3650000,5],
+  ["Sacramento Kings","Jackson, Bobby",2925000,5],
+  ["Sacramento Kings","Peeler, Anthony",2250000,6],
+  ["Sacramento Kings","Massenburg, Tony",1070000,1],
+  ["Sacramento Kings","Wallace, Gerald",764600,4],
+  ["Sacramento Kings","Buford, Rodney",663679,1],
+  ["Sacramento Kings","Smith, Jabari",638679,1],
+  ["Sacramento Kings","Songaila, Darius",366931,1],
+  ["San Antonio Spurs","Duncan, Tim",12676125,7],
+  ["San Antonio Spurs","Mercer, Ron",6750000,4],
+  ["San Antonio Spurs","Nesterovic, Radoslav",5600000,6],
+  ["San Antonio Spurs","Horry, Robert",4917000,2],
+  ["San Antonio Spurs","Rose, Malik",4916250,7],
+  ["San Antonio Spurs","Bowen, Bruce",3733000,3],
+  ["San Antonio Spurs","Turkoglu, Hidayet",1995600,4],
+  ["San Antonio Spurs","Ginobili, Emanuel",1543500,2],
+  ["San Antonio Spurs","Willis, Kevin",1070000,1],
+  ["San Antonio Spurs","Parker, Tony",856200,4],
+  ["San Antonio Spurs","Carter, Anthony",688679,2],
+  ["San Antonio Spurs","Hart, Jason",638679,1],
+  ["San Antonio Spurs","Heal, Shane",563679,1],
+  ["San Antonio Spurs","Brown, Devin",563679,2],
+  ["San Antonio Spurs","Garcia, Alex",366931,1],
+  ["Seattle SuperSonics","Allen, Ray",13500000,6],
+  ["Seattle SuperSonics","Lewis, Rashard",7012000,7],
+  ["Seattle SuperSonics","Potapenko, Vitaly",5715000,6],
+  ["Seattle SuperSonics","Booth, Calvin",5447000,6],
+  ["Seattle SuperSonics","Barry, Brent",5400000,6],
+  ["Seattle SuperSonics","James, Jerome",4545000,3],
+  ["Seattle SuperSonics","Daniels, Antonio",2200000,3],
+  ["Seattle SuperSonics","Radmanovic, Vladimir",1670000,4],
+  ["Seattle SuperSonics","Collison, Nick",1578000,4],
+  ["Seattle SuperSonics","Ridnour, Luke",1424400,4],
+  ["Seattle SuperSonics","Sesay, Ansu",638679,2],
+  ["Seattle SuperSonics","Murray, Ronald",563679,3],
+  ["Seattle SuperSonics","Evans, Reggie",563679,2],
+  ["Seattle SuperSonics","Frahm, Richie",366931,1],
+  ["Toronto Raptors","Davis, Antonio",12000000,5],
+  ["Toronto Raptors","Carter, Vince",11326000,6],
+  ["Toronto Raptors","Williams, Alvin",5500000,7],
+  ["Toronto Raptors","Williams, Jerome",5400000,7],
+  ["Toronto Raptors","Murray, Lamond",4500000,7],
+  ["Toronto Raptors","Montross, Eric",2960000,11],
+  ["Toronto Raptors","Bosh, Chris",2911000,4],
+  ["Toronto Raptors","Curry, Michael",2800000,5],
+  ["Toronto Raptors","Peterson, Morris",1646100,4],
+  ["Toronto Raptors","Bradley, Michael",1292000,4],
+  ["Toronto Raptors","Jefferies, Chris",840360,4],
+  ["Toronto Raptors","Brunson, Rick",813679,1],
+  ["Toronto Raptors","Palacio, Milt",688679,2],
+  ["Toronto Raptors","Moiso, Jerome",663679,2],
+  ["Toronto Raptors","Bateer, Mengke",638679,2],
+  ["Utah Jazz","Ostertag, Greg",8666666,6],
+  ["Utah Jazz","Clark, Keon",5000000,2],
+  ["Utah Jazz","Harpring, Matt",4545000,4],
+  ["Utah Jazz","Stevenson, DeShawn",1624022,4],
+  ["Utah Jazz","Collins, Jarron",1300000,2],
+  ["Utah Jazz","Borchardt, Curtis",1197240,4],
+  ["Utah Jazz","Pavlovic, Aleksandar",1107960,4],
+  ["Utah Jazz","Arroyo, Carlos",1000000,1],
+  ["Utah Jazz","Kirilenko, Andrei",955000,4],
+  ["Utah Jazz","Lopez, Raul",776900,4],
+  ["Utah Jazz","Bell, Raja",750000,2],
+  ["Utah Jazz","Ruffin, Michael",663679,1],
+  ["Utah Jazz","Williams, Maurice",366931,1],
+  ["Utah Jazz","Handlogten, Ben",366931,1],
+  ["Washington Wizards","Arenas, Gilbert",8533333,6],
+  ["Washington Wizards","Stackhouse, Jerry",6500000,4],
+  ["Washington Wizards","Laettner, Christian",5625000,4],
+  ["Washington Wizards","Hughes, Larry",5499450,3],
+  ["Washington Wizards","White, Jahidi",5394125,5],
+  ["Washington Wizards","Brown, Kwame",4252080,4],
+  ["Washington Wizards","Thomas, Etan",2211724,4],
+  ["Washington Wizards","Hayes, Jarvis",1748760,3],
+  ["Washington Wizards","Jeffries, Jared",1428700,4],
+  ["Washington Wizards","Haywood, Brendan",1125360,4],
+  ["Washington Wizards","Whitney, Chris",1070000,1],
+  ["Washington Wizards","Dixon, Juan",1050300,4],
+  ["Washington Wizards","Butler, Mitchell",876179,1],
+  ["Washington Wizards","Blake, Steve",366931,2]
+];
+//Írjuk ki játékosonként a szerződésben rögzített évekre számolt összes jövedelmet!
+//console.log(szerzodesek.sort(function(a, b){return (b[2] / b[3]) - (a[2] / a[3])}))
+function playersPaymentPerYears(array){
+    let paymentPerYear = [];
+    for(let i = 0; i < array.length; i++){
+        let m = array[i][2];
+        let n = array[i][3];
+        let teams = array[i][0]
+        let person = array[i][1];
+        let calculate = m / n;
+        paymentPerYear.push({team: teams, name: person, paymentPerYear: calculate, payment: m, season: n });
+    }
+    paymentPerYear.sort(function(a, b){return b.paymentPerYear - a.paymentPerYear})
+    return paymentPerYear;
+}
+console.log(playersPaymentPerYears(szerzodesek));
+
+// - Melyik játékos kapja a legnagyobb pénzt egy szezonra?
+function highestPayment(array){
+    let highestPaymentPerson = {name: '', payment: 0};
+    for(let i = 0; i < array.length; i++){
+        if(array[i].payment > highestPaymentPerson.payment){
+            highestPaymentPerson = array[i];
+        }
+        
+    }
+    return highestPaymentPerson;
+}
+console.log(highestPayment(playersPaymentPerYears(szerzodesek)));
+//console.log(Object.keys({team: 'hdf', name: 'fg', paymentPerYear: 10, payment: 50, season: 5 }))
+// - Adjuk meg csapatonként a játékosokra költött éves pénzösszeget!
+//obj.keys()
+//obj.value()
+//console.log(Object.entries(playersPaymentPerYears(szerzodesek)))
+
+function paymentPerTeam(playerPayments){
+    let sum = {};
+    let nba = { 
+        paymentPerYear: 0,
+        allPlayers: 0,
+        avaragePayment: 0,
+    };
+    for(let i = 0; i < playerPayments.length; i++){
+        if(sum[playerPayments[i].team] === undefined) {
+            sum[playerPayments[i].team] = { 
+                team: playerPayments[i].team,
+                paymentPerYear: 0,
+                maxPayment: 0,
+                minPayment: Infinity,
+                differenceBetweenMinAndMaxPayment: 0,
+                mostExpensivePlayer: '',
+                playersNumbers: 0,
+                avaragePayment: 0,
+                avarageNbaPaymentPlayers: 0,
+            };
+        }
+        let team = sum[playerPayments[i].team]
+        team.paymentPerYear = playerPayments[i].paymentPerYear + team.paymentPerYear;
+        team.playersNumbers++;
+        team.avaragePayment = team.paymentPerYear / team.playersNumbers;
+
+        if(playerPayments[i].paymentPerYear > team.maxPayment){
+            team.maxPayment = playerPayments[i].paymentPerYear;
+            team.mostExpensivePlayer = playerPayments[i].name;
+        }
+        if(playerPayments[i].paymentPerYear < team.minPayment){
+            team.minPayment = playerPayments[i].paymentPerYear;
+            team.differenceBetweenMinAndMaxPayment = team.maxPayment - team.minPayment;
+        }
+    
+        nba.paymentPerYear = playerPayments[i].paymentPerYear + nba.paymentPerYear;
+        nba.allPlayers++;
+        nba.avaragePayment = nba.paymentPerYear / nba.allPlayers;
+        
+    }
+    for(let i = 0; i < playerPayments.length; i++){
+        if(playerPayments[i].paymentPerYear > nba.avaragePayment){
+            sum[playerPayments[i].team].avarageNbaPaymentPlayers++;
+        }
+    }
+    let array = [];
+    let keys = Object.keys(sum)
+    for(let i = 0; i < keys.length; i++){
+        array.push(sum[keys[i]])
+        
+    }
+    array.sort(function(a, b){return b.paymentPerYear - a.paymentPerYear})
+
+    return {
+        nba: nba,
+        teams: array
+    }
+}
+console.log(paymentPerTeam(playersPaymentPerYears(szerzodesek)))
+
+
+
+// - Melyik csapatban van a legnagyobb különbség a maximális és minimális fizetés között?
+// - Melyik csapatban a legalacsonyabb az átlagfizetés?
+// - Írjuk ki minden csapat "legdrágább" játékosának nevét!
+// - Mennyi az átlagfizetés az NBA-ben?
+// - Melyik csapatban hányan keresnek az átlag felett?
+// - Rendezzük az adathalmazt éves fizetés szerint csökkenően!
+    </script>
+</body>
+</html>

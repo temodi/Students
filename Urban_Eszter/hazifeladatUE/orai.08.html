@@ -10,7 +10,7 @@
     <script>
         let myPhoneNumbers = [3630792765, 3630369549, 3620797249, 3670129465, 3630735165, 3630799685, 3630294765, 3630739572, 3630792388, 3630792947, 3630798965, 3630799284, 3630793325, 3630799685, 3630194265,];
         let myNames = ['Bandobras Underhill', 'Robin Gardner', 'Isembold Whitfoot', 'Donnamira Galbassi', 'Bungo Baggins', 'Will Sandyman', 'Isengrim Proudfoot', 'Frodo Baggins', 'Amaranth Gaukrogers', 'Trahand Bunce', 'Will Sandyman', 'Halfred Goodchild', 'Bilbo Baggins', 'Will Sandyman', 'Belba Sandheaver'];
-        let emails = ['paulnoel21@agung002.com', 'weegrah1@eeothno.com', 'johnjohn69@hungta2.com', 'johnjohn69@hungta2.com', 'yuzhakova1960@hungta2.com', 'yuzhakova1960@hungta2.com', 'lemonkakiska@cggup.com', 'lemonkakiska@cggup.com', 'bd8axwy@cuendita.com', 'bd8axwy@cuendita.com', 'gasg@supok.site', 'gasg@supok.site', 'zaqman@pianoxltd.com', 'zaqman@pianoxltd.com'];
+        
         
         function telephoneBookAdder(names, phoneNumbers){
             let telephoneBook = [];
@@ -259,7 +259,8 @@
             }
             return array;
         }
-        console.log(formatNumber(filter(phoneBook, 'Baggins')));
+        let filtered_contacts = filter(phoneBook, 'Baggins')
+        console.log(formatNumber(filtered_contacts));
       
 
 /**
@@ -267,34 +268,59 @@
  * Irj programot ami az ugyan olyan telefonszammal rendelkezok kozul csak egyet hagy meg
  * Nehez!
  */
-let duplicates_test = [
-  { name: 'Mr. 1', mobile: 36301234567 },
-  { name: 'Mr. 2', mobile: 36301234567 },
-  { name: 'Mr. 3', mobile: 36301234567 },
-  { name: 'Ms. 1', mobile: 36301234568 },
-  { name: 'Ms. 2', mobile: 36301234568 },
-  { name: 'Ms. 3', mobile: 36301234568 },
-  { name: 'Mrs. 1', mobile: 36301234569 }
-];
-/*function reduce(array){
-    for(let i = 0; i < array.length; i++){
-        let reducedNumber  = [];
-        for(let m = 0; m < reducedNumber.length; m++){
-            if(reducedNumber[m].mobile !== array[i].mobile){
-                reducedNumber.push(array[i])
+        let duplicates_test = [
+        { name: 'Mr. 1', mobile: 36301234567 },
+        { name: 'Mr. 2', mobile: 36301234567 },
+        { name: 'Mr. 3', mobile: 36301234567 },
+        { name: 'Ms. 1', mobile: 36301234568 },
+        { name: 'Ms. 2', mobile: 36301234568 },
+        { name: 'Ms. 3', mobile: 36301234568 },
+        { name: 'Mrs. 1', mobile: 36301234569 }
+        ];
+        function reduce(array){
+            for(let i = 0; i < array.length; i++){
+                for(let m = i + 1; m < array.length; m++){
+                    if(array[m].mobile === array[i].mobile){
+                        array.splice(m, 1);
+                        m--;
+                    } 
+                }
             }
+            return array
         }
-        return reducedNumber;
-    }
-}
-console.log(reduce(duplicates_test))*/ //ez még nem jó
+        console.log(reduce(duplicates_test))
 
+// Irj fugvenyt ami megkeresi a duplikalt embert.
+// (telefonszam es nev is megegyezik)
+        add(phoneBook, 'Eszter', 36301234567);
+        add(phoneBook, 'Eszter', 36304567891);
+        function filterByNameAndPhone(telePhoneBook) {
+            let person = [];
+            for(let i = 0; i < telePhoneBook.length; i++){
+                for(let m = 1 + i; m < telePhoneBook.length; m++)
+                    if(telePhoneBook[m].name === telePhoneBook[i].name && telePhoneBook[m].phonenumber === telePhoneBook[i].phonenumber){
+                        person.push(telePhoneBook[i]);
+                        
+                    }
+            }
+            return person;
+        }
+        console.log(filterByNameAndPhone(phoneBook))
+
+// Irj fuggvenyt ami hozzafuzi ezeket az email cimeket az emberekhez
+        let emails = ['paulnoel21@agung002.com', 'weegrah1@eeothno.com', 'johnjohn69@hungta2.com', 'johnjohn69@hungta2.com', 'yuzhakova1960@hungta2.com', 'yuzhakova1960@hungta2.com', 'lemonkakiska@cggup.com', 'lemonkakiska@cggup.com', 'bd8axwy@cuendita.com', 'bd8axwy@cuendita.com', 'gasg@supok.site', 'gasg@supok.site', 'zaqman@pianoxltd.com', 'zaqman@pianoxltd.com'];
+        function addEmail(telePhoneBook, field, value) {
+                    for(let i = 0; i < telePhoneBook.length; i++){
+                                telePhoneBook[i][field] = value[i]; 
+                    }
+                    return telePhoneBook;
+                }
+        console.log(addEmail(phoneBook, 'email', emails))
 
 
 /*Callbackes hazi: Irjatok at a findByName es filterByName fuggvenyeket, hogy masodik parameternek name helyett egy callback fuggvenyt fogadjanak.
 A callback kapja meg parameternek az aktulis elemet a ciklusbol es terjen vissza true-val ha teljesul benne a feltetel false-val egyebkent.
 (Ez a callback fogja lecserelni az if-ben levo feltetelt)
-
 masik hazi a sima filterByName*/
         
         function findBy(telePhoneBook, callback){
@@ -305,10 +331,15 @@ masik hazi a sima filterByName*/
             }
             return false;
         }
-        console.log(findBy(phoneBook, function (note){return note.name === 'Eszter'}));
+        function isNamedEszter(note){return note.name === 'Eszter'}
+        console.log(findBy(phoneBook, isNamedEszter));
 
-
-
+/*
+példa:
+let myFunc = function(){return 1}
+let result = myFunc()
+console.log(result)
+*/
 
         function filterByNameCallback(telePhoneBook, predicate) {
             let person = [];
