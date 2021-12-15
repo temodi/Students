@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methods</title>
+  <script>
+
+    let objektumMethods = {
+      title: "Cim",
+      first: function() { console.log('Ez az elso'); },
+      getThis: function() { console.log(this); this.first() }
+    }
+
+    
+    let math = {
+      min: function (a,b){
+        if (a > b) {
+          return b;
+        }else if (a === b){
+          return console.log(a + " & " +b +" are equal");
+        }else{
+          return a;
+        }
+      },
+
+      max: function (a,b){
+        if (a > b) {
+          return a;
+        }else if (a === b){
+          return console.log(a + " & " +b +" are equal");
+        }else{
+          return b;
+        }
+      }}
+    
+     
+    console.log(objektumMethods.first())
+    console.log("A minimum ertek " + math.min(2,5));
+    console.log("A maximum ertek " + math.max(2,5));
+     
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
