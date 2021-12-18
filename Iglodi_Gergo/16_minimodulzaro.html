@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. feladat
+        let a = 'a';
+
+        // 2. feladat
+        let b = 2;
+
+        // 3. feladat
+        /* let c;
+        c = "szia";
+        console.log(c)
+ */
+        // 4. feladat
+        /* let d = [1, 2, 3, 4, 5];
+        console.log(d); */
+
+        // 5. feladat
+        let e = {
+            konyv1: "JavaScript alapok",
+            konyv2: "Modern JavaScript",
+            konyv3: "HTML és CSS 5 nap alatt"
+        }
+        // másik megoldás??
+        let f = ["JavaScript alapok", "Modern JavaScript", "HTML és CSS 5 nap alatt"]
+
+        // 6.feladat    
+        /* let g = [[0, 1, 1], [1, 1, 0], [1, 0, 1]]
+        console.log(g) */
+
+
+        // 7.feladat
+        /* let on = true
+        let off = false
+        let kapcsolo = on
+        if (kapcsolo) {
+            alert("A villany fel van kapcsolva")
+        } else {
+            alert("A villany nincs fel kapcsolva")
+        } */
+
+        // 8. feladat
+        /* let string = "string";
+        console.log(string.charAt(0) + " " + string.charAt(string.length-1))
+ */
+        // 9. feladat
+        /* let h = ["a", "b", "c", "d", "e"]
+        
+ */
+
+
+        // 10. feladat
+        /* function megjenelito(a) {
+            console.log(a)
+        }
+        megjenelito("a")
+        megjenelito(4) */
+
+
+        // 11. feladat
+        /* function hasonlito(a, b) {
+            if (a < b) {
+                return a
+            } else if (b < a) {
+                return b
+            } else {
+                alert("egyenlőek")
+            }
+        }
+        console.log(hasonlito(3, 3)) */
+
+
+        // 12. feladat
+        let person = {
+            nev: "Kiss Jolán",
+            kor: 32
+        };
+        console.log(person.nev)
+        console.log(person.kor)
+
+        // 13. feladat
+
+        class Allatok {
+            constructor(nev, faj, kor, ar) {
+                this.nev = nev;
+                this.faj = faj;
+                this.kor = kor;
+                this.ar = ar;
+
+            }
+        }
+        let elso = new Allatok("Buksi", "Kutya", 2, 15000)
+        let masodik = new Allatok("CSőrike", "Papagáj", 0.5, 2000)
+        let harmadik = new Allatok("Szirmi", "Macska", 3, 4000)
+
+
+        // másik megoldás
+        let allatok = [
+            {
+                nev: "Buksi",
+                faj: "kutya",
+                kor: 2,
+                ar: 15000
+            },
+        ]
+
+        // 14. feladat
+        function tombos(arr) {
+            if (!Array.isArray(arr)) {
+                return null
+            }
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i]
+            }
+            return sum
+        }
+        console.log(tombos("tomb"))
+        console.log(tombos([1, 2, 3]))
+
+        // 15. feladat
+        class Konyv {
+            constructor(cim, isbn, szerzo) {
+                this.cim = cim;
+                this.isbn = isbn;
+                this.szerzo = szerzo;
+            }
+            lekerdez() {
+                return this.isbn
+            }
+            beallito(isbn) {
+                this.isbn = isbn
+            }
+        }
+        let konyv1 = new Konyv("JavaScript a gyakorlatban", 123231, "John Doo")
+        let konyv2 = new Konyv("JavaScript és az OOP", 545454, "Big Bill")
+        console.log(konyv1.lekerdez())
+        console.log(konyv2.szerzo)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
