@@ -48,16 +48,16 @@ function add(myNewPhoneBook, newName, newPhoneNumber) {
 
 // myNewPhoneBook.push({name:newName,mobile:NewPhoneNumber})
 
-// function findByMobile(myPhoneBook1, szam) {
-//     let found;
-//     for (let i = 0; i < myPhoneBook1.length; i++) {
-//         if (myPhoneBook1[i].mobile === szam) {
-//             found = myPhoneBook1[i]
-//             return found;
-//         } 
-//     }
-//     return null
-// }
+function findByMobile(myPhoneBook1, szam) {
+    let found;
+    for (let i = 0; i < myPhoneBook1.length; i++) {
+        if (myPhoneBook1[i].mobile === szam) {
+            found = myPhoneBook1[i]
+            return found;
+        } 
+    }
+    return null
+}
 
 
 // console.log(findByMobile(myPhoneBook, 3630369549));
@@ -91,10 +91,10 @@ function findByMobileArrayFind(myPhoneBook2, mobile) {
 
 // // ARRAY FIND WITH ARROW FUNCTION
 
-//  function findByMobileArrow(phoneBook, mobile) {
-//     return phoneBook.find(bejegyzes => bejegyzes.mobile === mobile);
+ function findByMobileArrow(phoneBook, mobile) {
+    return phoneBook.find(bejegyzes => bejegyzes.mobile === mobile);
+}
 
-// }
 //  console.log(findByMobileArrow(myPhoneBook, 3630369549))
 
 
@@ -138,7 +138,7 @@ function findByName(phoneBook, nev) {
             return i
         }
     }
-    return -1
+    return null
 }
 // console.log(nameByName(myPhoneBook, 'Isembold Whitfoot'));
 
@@ -263,10 +263,6 @@ function addField(phoneBook, mobile, field, value) {
     return null;
 }
 
-
-
-
-
 function addField2(phoneBook, mobile, field, value) {
     let entry = findByMobile(phoneBook, mobile);
     if (entry !== null) {
@@ -314,17 +310,41 @@ function modify(phoneBook, mobile, field, value) {
 //  - a string indexelheto, mint egy tomb
 //  - a slice(start, end) metodus segithet
 function formatPhoneNumber(mobile) {
-    mobile = String(mobile);
-    let formated = "";
-    formated = "+" + mobile.slice(0, 2) + " " + mobile.slice(2, 4) + " " + mobile.slice(4, 8) + " " + mobile.slice(8)
-    return formated;
+        mobile = String(mobile);
+        let formated = "";
+        formated = "+" + mobile.slice(0, 2) + " " + mobile.slice(2, 4) + " " + mobile.slice(4, 8) + " " + mobile.slice(8)
+        return formated;
 }
 
-console.log(formatPhoneNumber(+36987456123))
+// console.log(formatPhoneNumber(+36987456123))
 /**
  * FELADAT:
  * Irj programot ami kiirja az ossze Baggins csaladnevu hobbitot es telefonszamanak formazott alakjat a konzolra.
  */
+
+function findBaggins(phoneBook) {
+    let found = [];
+    for (let i = 0; i < phoneBook.length; i++) {
+        if (phoneBook[i].name.includes('Baggins')) {
+            found.push(phoneBook[i]);
+        }
+    }
+    for (let j = 0; j < found.length; j++) {
+        mobile = String(found[j].mobile);
+        let formated = "";
+        formated = "+" + mobile.slice(0, 2) + " " + mobile.slice(2, 4) + " " + mobile.slice(4, 8) + " " + mobile.slice(8)
+        found[j].mobile = formated;
+    }
+     return found;
+}
+
+// console.log(findBaggins(myPhoneBook))
+
+
+
+
+
+
 
 /**
  * FELADAT:
@@ -332,19 +352,63 @@ console.log(formatPhoneNumber(+36987456123))
  * Nehez!
  */
 let duplicates_test = [
-    { name: 'Mr. 1', mobile: 36301234567 },
     { name: 'Mr. 2', mobile: 36301234567 },
+    { name: 'Ms. 2', mobile: 36301234568 },
     { name: 'Mr. 3', mobile: 36301234567 },
     { name: 'Ms. 1', mobile: 36301234568 },
     { name: 'Ms. 2', mobile: 36301234568 },
     { name: 'Ms. 3', mobile: 36301234568 },
-    { name: 'Mrs. 1', mobile: 36301234569 }
+    { name: 'Mrs. 1', mobile: 36301234569 },
+    { name: 'Mr. 1', mobile: 36301234567 },
+    { name: 'Mr. 3', mobile: 36301234567 },
+    { name: 'Ms. 1', mobile: 36301234568 },
+    { name: 'Ms. 3', mobile: 36301234568 },
+    { name: 'Mr. 2', mobile: 36301234567 },
+    { name: 'Mrs. 1', mobile: 36301234569 },
+    { name: 'Mr. 1', mobile: 36301234567 },
+    { name: 'Mr. 2', mobile: 36301234567 },
+    { name: 'Ms. 2', mobile: 36301234568 },
+    { name: 'Mr. 3', mobile: 36301234567 },
+    { name: 'Ms. 1', mobile: 36301234568 },
+    { name: 'Ms. 2', mobile: 36301234568 },
+    { name: 'Ms. 3', mobile: 36301234568 },
+    { name: 'Mrs. 1', mobile: 36301234569 },
+    { name: 'Mr. 1', mobile: 36301234567 },
+    { name: 'Mr. 3', mobile: 36301234567 },
+    { name: 'Ms. 1', mobile: 36301234568 },
+    { name: 'Ms. 3', mobile: 36301234568 },
+    { name: 'Mr. 2', mobile: 36301234567 },
+    { name: 'Mrs. 1', mobile: 36301234569 },
+    { name: 'Mr. 1', mobile: 36301234567 }
 ];
 
-/**
- * FELADAT:
- * Irj programot ami kiszuri az ugyan olyan nevu es telefonszamu embereket
- */
-function find(phoneBook, value) {
-    // Generic find string => name, number => mobile
+
+function sortedDuplicateRemover(phoneBook) {
+    let currentCheck = phoneBook[0];
+    for (let i = 1; i < phoneBook.length; i++) {
+        if (currentCheck.mobile === phoneBook[i].mobile) {
+            phoneBook.splice(i, 1);
+            i--;
+        } else {
+            currentCheck = phoneBook[i];
+        }
+    }
+    return phoneBook;
 }
+
+// console.log(sortedDuplicateRemover(duplicates_test))
+
+function dupli2(phonebook) {
+    for (let i = 0; i < phonebook.length; i++) {
+        for ( let j = i+ 1; j < phonebook.length; j++) {
+            if (phonebook[i].mobile === phonebook[j].mobile) {
+                phonebook.splice(j, 1);
+                j--;
+            }
+        }
+        
+    }
+    return phonebook;
+}
+
+// console.log(dupli2(duplicates_test));
