@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form>
+        <input type="text" name="nev" value="Név" id="nevId">
+        <input type="text" name="szuletesiEv" value="Év" id="evId">
+    </form>
+
+    <div>
+
+    </div>
+    <script>
+        let osszesForm = document.forms;
+
+        let inputNev = document.querySelector('#nevId');
+        console.log(inputNev.value);
+        console.log(inputNev.defaultValue);
+
+        let inputEv = document.querySelector('#evId');
+        console.log(inputEv.value);
+        console.log(inputEv.defaultValue);
+
+        let osszesInput = document.querySelectorAll('input');
+        for (let i = 0; i < osszesInput.length; i++) {
+            console.log(osszesInput[i]);
+            console.log(osszesInput[i].name, osszesInput[i].defaultValue, osszesInput[i].value);
+        }
+
+        // for of 
+        let divem = document.querySelector("div");
+        for (let elem of osszesInput) {
+            console.log(elem.name, elem.defaultValue, elem.value);
+
+            divem.innerHTML += input[i].name + ": " + input[i].value + "<br>";
+        }
+
+        
+        
+    </script>
+</body>
+
+</html>

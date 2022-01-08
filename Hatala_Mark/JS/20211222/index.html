@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="elso">Hello</div>
+    <p>Szöveggel</p>
+    <div class="redbg"> Meg egy div</div>
+
+    <ul>
+        <li class="menu">Menu 1</li>
+        <li class="menu">Menu 2</li>
+        <li class="menu">Menu 3</li>
+        <li class="menu">Menu 4</li>
+    </ul>
+
+    <script>
+        let elsoIdElem = document.querySelector('#elso');
+
+        let pTag = document.querySelector("p");
+
+        let divClassElem = document.querySelector(".redbg");
+
+        let tobbDiv = document.querySelectorAll("div");
+
+        elsoIdElem.getAttribute('id');
+        elsoIdElem.setAttribute('id', 'nevezni');
+
+        for (let i = 0; i < tobbDiv.length; i++) {
+            tobbDiv[i].setAttribute('class', 'bluebag');
+        }
+
+        let liElemek = document.querySelectorAll('li');
+        // console.log(liElemek);
+
+        /* liElemek.forEach(function (liElem) {
+            liElem.classList.add('redbg');
+        }) */
+        // console.log(liElemek);
+
+
+        let active = (_active) => {
+            for (let i = 0; i < liElemek.length; i++) {
+                    liElemek[i].classList.remove('aktiv');
+            }
+            liElemek[_active - 1].classList.add('aktiv');
+        };
+
+        active(2);
+        active(3);
+        active(1);
+
+
+
+
+    </script>
+</body>
+
+</html>

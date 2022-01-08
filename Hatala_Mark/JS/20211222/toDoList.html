@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let item = {
+            done: false,
+            title: 'Megtanulni a querySelectort'
+        }
+
+
+        let toDoList = [];
+
+        function addItem(arr, toDoObject) {
+            arr.push(toDoObject);
+        }
+
+        addItem(toDoList, {
+            done: false,
+            title: 'Megtanulni a querySelectort'
+        }
+        );
+        addItem(toDoList, {
+            done: false,
+            title: 'Karácsonyi ajándékokat beszerezni'
+        }
+        );
+
+        function itemDone(arr, itemPosition) {
+            let itemObject = arr[itemPosition - 1];
+            if (itemObject) {
+                itemObject.done = true;
+            }
+        };
+
+        function itemNotDone(arr, itemPosition) {
+            let itemObject = arr[itemPosition - 1];
+            if (itemObject) {
+                itemObject.done = false;
+            }
+        };
+
+        console.log(toDoList);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

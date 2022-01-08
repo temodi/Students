@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+
+    <script>
+        let ulelem = document.querySelector('ul');
+
+        let menupontok = [
+            {
+                text: 'Menupont1',
+                url: 'http://google.com'
+            },
+
+            {
+                text: 'Menupont2',
+                url: 'http://google.com'
+            },
+        ]
+
+        for (let menu of menupontok) {
+            let liElem = document.createElement('li');
+            //inner html
+            //let aLink = '<a href="' + menu.url + '">' + menu.text + '<\a>';
+            let aLink = `<a href="${menu.url}">${menu.text}<\a>`;
+            liElem.innerHTML = aLink;
+            console.log(aLink)
+
+            ulelem.append(liElem);
+        }
+    </script>
+</body>
+
+</html>
