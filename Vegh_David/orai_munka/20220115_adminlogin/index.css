@@ -1,0 +1,42 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main h3{
+    font-size: 1.6rem;
+    margin-bottom: 0px;
+}
+
+.main .invalid{
+    font-size: 1rem;
+    vertical-align: center;
+}
+
+.req{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.main .admininput{
+    margin-bottom: 10px;
+    background-color: rgb(226, 226, 226);
+    border: 0px;
+    height: 25px;
+}
+
+.adminbutton::placeholder{
+    color: black;
+}
+
+.adminbutton{
+    background-color: rgb(226, 226, 226);
+    color: black;
+    border: 0px;
+    height: 25px;
+    width: 60px;
+}

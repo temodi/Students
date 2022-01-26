@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="database.js"></script>
+    <script src="admin.js"></script>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="sidebar">
+            <a href="#">Stastics</a>
+            <a href="#">Users</a>
+            <a href="#">Galery</a>
+        </div>
+
+        <div class="content">
+
+            <div class="subcontent">
+                <div class="substat1">
+                    <div class="numbertext">Number of users:</div>
+                    <span class="numbernumber" id="num1"></span>
+                </div>
+                <div class="substat2">
+                    <div class="numbertext">Number of users with image:</div>
+                    <span class="numbernumber" id="num2"></span>
+                </div>
+            </div>
+
+            <div class="subcontent">
+                <form action="">
+                    <label for="fullname">Fullname</label>
+                    <input type="text" placeholder="Fullname" name="fullname" id="fullname">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Usrname" name="username" id="username">
+                    <label for="picture">Picture</label>
+                    <input type="text" placeholder="True" name="picture" id="picture">
+                    <label for="email">Email</label>
+                    <input type="text" placeholder="Email" name="email" id="email">
+                    <button type="submit" id="savebutton">Save</button>
+                    <button type="reset" id="clear">Clear</button>
+                </form>
+                <br>
+                <table cellspacing="0" cellpadding="0" class="admintable">
+                    <thead>
+                        <tr>
+                            <td>
+                                ID
+                            </td>
+                            <td>
+                                Fullname
+                            </td>
+                            <td>
+                                Username
+                            </td>
+                            <td>
+                                Picture
+                            </td>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                Delete
+                            </td>
+                            <td>
+                                Change
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="subcontent">
+                <div class="galerymain">
+                    <div class="galeryheader">
+                        <ul>
+                            <li class="users"><a href="#">Users</a>
+                                <div class="us">
+                                    <ul class="usersul">
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="galerybody">
+                        <img src="http://placekitten.com/200/200" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
