@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+   overflow: hidden;
+}
+
+.box{
+    width: 150px;
+    height: 150px;
+    background-color: rgb(250, 84, 34);
+    border: 1px solid #666;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    
+}

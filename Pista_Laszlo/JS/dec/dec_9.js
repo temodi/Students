@@ -424,6 +424,19 @@ const szerzodesek = [
     ["Washington Wizards", "Blake, Steve", 366931, 2]
 ];
 
+/**
+Az NBA 2003-as évében kötött szerződéseiről tartalmaz információt. A játékosok csapata, neve, éves fizetése (dollárban), és a szerződés éveinek száma olvasható a szöveges állományban.
+
+ - Írjuk ki játékosonként a szerződésben rögzített évekre számolt összes jövedelmet!
+ - Melyik játékos kapja a legnagyobb pénzt egy szezonra?
+ - Adjuk meg csapatonként a játékosokra költött éves pénzösszeget!
+ - Melyik csapatban van a legnagyobb különbség a maximális és minimális fizetés között?
+ - Melyik csapatban a legalacsonyabb az átlagfizetés?
+ - Írjuk ki minden csapat "legdrágább" játékosának nevét!
+ - Mennyi az átlagfizetés az NBA-ben?
+ - Melyik csapatban hányan keresnek az átlag felett?
+ - Rendezzük az adathalmazt éves fizetés szerint csökkenően!
+*/
 
 function sum(array) {
     for (let i = 0; i < array.length; i++) {
@@ -445,6 +458,7 @@ function Emilio(arr) {
             console.log(arr[j])
         }
     }
+
 }
 Emilio(szerzodesek)
 
@@ -461,3 +475,28 @@ summary(szerzodesek)
 
 
 //legnagyobb különbség csapatoknál
+
+debugger
+
+function difference(tomb) {
+    let team = tomb[0][0]
+    let teamGazsi = 0;
+    let teams = []
+
+
+    for (let i = 0; i < tomb.length; i++) {
+
+        if (team !== tomb[i][0]) {
+            team = tomb[i][0]
+
+            teams.push(team)
+        }
+
+    }
+
+    console.log(teams)
+
+
+}
+
+difference(szerzodesek)

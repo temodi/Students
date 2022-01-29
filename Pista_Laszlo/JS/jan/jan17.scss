@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Mono', monospace;
+    padding-top: 35px;
+    background-image: url('jan17background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(80%);
+}
+
+.colorContainer{
+    width: 800px;
+    height: 800px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 35px ;
+    .colorBox{
+        width: 220px;
+        height: 220px;
+        transition: .25s;
+    }
+    .colorBox:hover{
+        filter: saturate(60%) contrast(150%);
+        opacity: .6;
+
+    }
+}
+
+.dialogueContainer{
+    width: 800px;
+    height: 60px;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    button{
+        padding: 5px 10px;
+        margin-right: 20px;
+    }
+    p{
+        font-size: 20px;
+        color: rgb(13, 86, 243);
+        
+    }
+}
+
+
+.gameOver{
+    width: 100vw;
+    height: 100vh;
+    transform: scale(0);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .gameOverCard{
+        width: 640px;
+        height: 480px;
+        background-color: #2a3492e3;
+        border: 2px solid #ff9526;
+        font-family: 'Press Start 2P', cursive;
+        color: #ef4423;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        .gameOverMessage{
+            font-size: 60px;
+        }
+        .gameOverCardMessage{
+            color: white;
+        }
+        button{
+            padding: 10px 20px;
+            font-family: 'Press Start 2P', cursive;
+
+        }
+    }
+}

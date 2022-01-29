@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: #fa5422;
+  border: 1px solid #666;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+/*# sourceMappingURL=jan19firstdrag.css.map */

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 20px;
+}
+
+#telefonKonyv{
+    border-collapse: collapse;
+    tr{
+        th{
+            height: 25px;
+            padding: 0 15px;
+            border: 1px solid rgb(189, 189, 189);   
+        }
+        td{
+            height: 25px;
+            padding: 0 15px;
+            border: 1px solid rgb(189, 189, 189);  
+        }
+        .tdclass{
+            text-decoration: line-through;
+        }
+    }
+    tr:nth-child(2n){
+        background-color: #eee;
+    }
+}

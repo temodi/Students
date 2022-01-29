@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+}
+
+body {
+  padding: 20px;
+}
+
+a, span {
+  display: block;
+}
+
+li {
+  cursor: pointer;
+}
+
+.active {
+  color: red;
+}
+/*# sourceMappingURL=jan05.css.map */

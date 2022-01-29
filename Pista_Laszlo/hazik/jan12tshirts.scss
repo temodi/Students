@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto Mono', monospace;
+}
+//navbar
+.navbar{
+    width: 100%;
+    max-width: 1080px;
+    height: 7vh;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ddd;
+    
+    .navbarBrand{
+        margin-left: 20px;
+        font-size: 28px;
+        font-family: 'Pacifico', cursive;
+        letter-spacing: 5px;
+    }
+
+    .navLinks{
+        margin-right: 20px;
+        height: 100%;
+        li:nth-of-type(1){
+            a{
+                color: rgb(238, 58, 58);
+            }
+        }
+        
+        li{
+            display: inline-block;
+            height: 100%;
+            justify-content: center;
+            
+            margin-left: 20px;
+            a{
+                display: flex;
+                align-items: center;
+                height: 100%;
+                text-decoration: none;
+                color: #ddd;
+                letter-spacing: 2px;
+            }
+            
+            
+            
+        }
+        
+    }
+}
+
+
+//Banner
+.jumbo{
+    width: 100%;
+    max-width: 1080px;
+    height: 600px;
+    background-image: url('tshirt.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+
+//Shop
+.searchBar{
+    select{
+        width: 150px;
+        height: 30px;
+    }
+    button{
+        padding: 0 10px;
+        height: 30px;
+    }
+}
+.shirtContainer{
+    width: 1080px;
+
+    background-color: #fdfdfd;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    border: 1px solid #ccc;
+    .card{
+        width: 230px;
+        height: 320px;
+        background-color: white  ;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        margin: 20px;
+        .tshirtContainer{
+            height: 70%;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-bottom: 1px solid #ddd;
+            i{
+                font-size: 160px;
+                position: absolute;
+            }
+            p{
+                position: absolute;
+                color: white;
+                z-index: 10;
+                top: 80px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+#adminForm{
+    margin-bottom: 50px;
+    input{
+        height: 30px;
+    }
+    input:focus{
+        outline: none;
+    }
+    button{
+        height: 30px;
+        padding: 0 10px;
+    }
+}
+//About
+.about{
+    width: 100%;
+    max-width: 1080px;
+    height: 400px;
+    background-color: #ccc;
+}
+
+.contact{
+    width: 100%;
+    max-width: 1080px;
+    height: 7vh;
+    background-color: #333;
+}
+.bottomLine{
+    width: 100%;
+    max-width: 1080px;
+    height: 1vh;
+    background-color: White; 
+}
+
+

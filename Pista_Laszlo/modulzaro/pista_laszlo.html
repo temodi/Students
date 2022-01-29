@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modulzáró - [NÉV]</title>
+  </head>
+  <body>
+    <script>
+      { // 0. feladat eleje
+        console.log('=== 0. feladat ===');
+        console.log('Pista László')
+      } // 0. feladat vége
+
+      { // 1. feladat
+        console.log('=== 1. feladat ===');
+        let name = "John";
+        let admin = name;
+
+        console.log(admin)
+      } // 1. feladat vége
+
+      { // 2. feladat
+        console.log('=== 2. feladat ===');
+        let num = 10;
+        console.log(num)
+        num +=3
+        console.log(num)
+      } // 2. feladat vége
+
+      { // 3. feladat
+        console.log('=== 3. feladat ===');
+
+        let foo ;
+        foo = true;
+        
+        console.log(!foo) 
+
+      } // 3. feladat vége
+
+      { // 4. feladat
+        console.log('=== 4. feladat ===');
+        console.log('false, null, undifined, NaN, 0')
+      } // 4. feladat vége
+
+      { // 5. feladat
+        console.log('=== 5. feladat ===');
+      
+        let num1 = "6";
+        console.log(Number(num1));
+        console.log(parseInt(num1));
+
+        let num2 = "6.66";
+        console.log(Number(num2));
+
+        let num3 = 6 ;
+        console.log(num3.toString())
+
+        let emptyString = ""
+        console.log(Boolean(emptyString))
+
+
+      } // 5. feladat vége
+
+      { // 6 feldat
+        console.log('=== 6 feldat ===');
+
+        let dices = ["D4", "D6", "D8", "D10", "D12", "D20"];
+        console.log(dices.length)
+
+      } // 6 feldat vége
+
+      { // 6.1 feladat
+        console.log('=== 6.1 feladat ===');
+
+        let dices = ["D4", "D6", "D8", "D10", "D12", "D20"];
+        dices.unshift("D2")
+        dices.push("D100")
+        console.log(dices.length)
+        
+    } // 6.1 feladat vége
+
+      { // 7. feladat
+        console.log('=== 7. feladat ===');
+        console.log('---V1---')
+        let diceInfo = [{rovidites: "D2", testNeve : "tetraéder"}, {rovidites: "D6", testNeve : "hexaéder"}, 
+        {rovidites: "D8", testNeve : "oktaéder"}, {rovidites: "D10", testNeve : "dodekaéder"}, {rovidites: "D12", testNeve : "pentagonális antidipiramis"}
+        , {rovidites: "D20", testNeve : "ikozaéder"}]
+
+        function keres(tomb, ertek){
+
+            for(let i = 0 ; i < tomb.length; i++){
+                if(tomb[i].rovidites == ertek){
+                    console.log(tomb[i].testNeve)
+                }
+            }
+
+        }
+        keres(diceInfo, "D12")
+
+        console.log('---V2---')
+
+        let diceInfoV2 = {D2 : "tetraéder", D6 : "hexaéder", D8: "oktaéder", D10 : "dodekaéder", D12 : "pentagonális antidipiramis", D20 : "ikozaéder"}
+        console.log(diceInfoV2.D12)
+
+      } // 7. feladat vége
+
+      { // 8. feladat
+        console.log('=== 8. feladat ===');
+
+        let mainString = "Pentagonális antidipiramis"
+
+        let firstChar = mainString.slice(0, 1)
+        let secondChar = mainString.slice(13, 14)
+        let thirdChar = mainString.slice(19,20)
+        let fourthChar = mainString.slice(22,23)
+        let newString = firstChar + secondChar + thirdChar + fourthChar
+        console.log(newString)
+      } // 8. feladat vége
+
+      { // 9. feladat
+        console.log('=== 9. feladat ===');
+
+
+        let mainString = "Pentagonális antidipiramis"
+
+        let stringObject = mainString.split("")
+
+        for(let i = 0 ; i < stringObject.length; i++){
+            if( i%2 == 1){
+                console.log(stringObject[i])
+            }
+        }
+
+
+      } // 9. feladat vége
+
+      { // 10. feladat
+        console.log('=== 10. feladat ===');
+      } // 10. feladat vége
+
+      { // 11. feladat
+        console.log('=== 11. feladat ===');
+
+
+        let fuggveny = function(a){console.log(a)}
+
+        fuggveny("első")
+        fuggveny("második")
+      } // 11. feladat vége
+
+      { // 12. feladat
+        console.log('=== 12. feladat ===');
+
+        let max= function(a, b){ return a > b ? a : b}
+
+        console.log(max(10,15))
+        
+
+      } // 12. feladat vége
+
+      { // 12.1 feladat
+        console.log('=== 12.1 feladat ===');
+
+        function max(a, b){
+            if(b > a){
+                return console.log(b)
+            } else{
+                return console.log(a)
+            }
+        }
+
+        max(10, 15)
+        max(10,5)
+        max(10)
+      } // 12.1 feladat vége
+
+      { // 12.2 feladat
+        console.log('=== 12.2 feladat ===');
+
+        function max(a, b){
+           if(typeof a == 'number' && typeof b == 'number'){
+                if(b > a){
+                    return console.log(b)
+                } else{
+                    return console.log(a)
+                }
+           } else{
+               return console.log(null)
+           }
+            
+        }
+
+        max(10, 15)
+        max(10,5)
+        max(10)
+        max()
+        max('1', '2')
+      } // 12.2 feladat vége
+
+      { // 13. feladat
+        console.log('=== 13. feladat ===');
+
+
+        let harommal = 0;
+        let hettel = 0;
+        for(let i = 1; i <= 10000; i++){
+            if(i% 3 == 0){
+                harommal++
+            } else if( i % 7 == 0){
+                hettel++
+            }
+        }
+        console.log(harommal)
+        console.log(hettel)
+      } // 13. feladat vége
+
+      { // 13.1 feladat
+        console.log('=== 13.1 feladat ===');
+
+        function tartomanyban(min, max){
+            let counter = 0;
+                if(min < max){
+                    for(let i = min; i <= max ; i++ ){
+                        if(i% 3 ==0 && i%7 == 0){
+                            counter++
+                        }
+                    }
+                } else {
+                    for(let i = min; i >= max ; i-- ){
+                        if(i% 3 ==0 && i%7 == 0){
+                            counter++
+                        }
+                    }
+                }
+            
+            console.log(counter)
+        }
+
+        tartomanyban(21, 210)
+      } // 13.1 feladat vége
+
+      { // 13.2 feladat
+        console.log('=== 13.2 feladat ===');
+
+        function tartomanyban(min, max){
+            let tomb = []
+                if(min < max){
+                    for(let i = min; i <= max ; i++ ){
+                        if(i% 3 ==0 && i%7 == 0){
+                            tomb.push(i)
+                        }
+                    }
+                } else {
+                    for(let i = min; i >= max ; i-- ){
+                        if(i% 3 ==0 && i%7 == 0){
+                            tomb.push(i)
+                        }
+                    }
+                }
+            
+            console.log(tomb)
+        }
+
+        tartomanyban(21, 210)
+      } // 13.2 feladat vége
+
+      { // 13.3 szorgalmi feladat (extra pontert)
+        console.log('=== 13.3 szorgalmi feladat ===');
+       
+      } // 13.3 szorgalmi feladat (extra pontert) vége
+
+      { // 14. feladat
+        console.log('=== 14. feladat ===');
+
+        let filmek = [{cim: "Elfújta a szél", kiadasEve : 1940, rendezo : "Victor Fleming", szereplok: ["Clark", "Vivien", "Leslie"]},
+        {cim: "Vuk", kiadasEve : 2017, rendezo : "Attila Dargay", szereplok: ["Karak", "Vuk", "Tás"]}]
+
+        for(let i = 0; i < filmek.length; i++){
+            if( filmek[i].cim == "Elfújta a szél"){
+                console.log(filmek[i].kiadasEve)
+            }
+        }
+
+        for(let i = 0; i < filmek.length; i++){
+            if( filmek[i].cim == "Vuk"){
+                for(let j = filmek[i].szereplok.length-1; j >=0 ; j--){
+                    console.log(filmek[i].szereplok[j])
+                }
+            }
+        }
+      } // 14. feladat vége
+
+      { // 15. feladat
+        console.log('=== 15. feladat ===');
+
+        let yellowPages = [{nev: "Majoros Ramona", telefonSzam : "+36207878787"}, {nev: "Tomku Melinda", telefonSzam : "+36306664545"},{nev: "Gergely Róbert", telefonSzam : "+36305555555"},
+        {nev: "Torma Attila", telefonSzam : "+36706666666"}, {nev: "Takács Enikő", telefonSzam : "+36702222222"} ]
+        
+
+        function search(telefonkonyv, telszam){
+            for(let i = 0; i < telefonkonyv.length; i++){
+                if(telefonkonyv[i].telefonSzam == telszam){
+                    return console.log(telefonkonyv[i])
+                } else{
+                    return console.log(null)
+                }
+                
+            }
+        }
+        search(yellowPages, "+36207878787")
+        search(yellowPages, "+36301574435")
+      } // 15. feladat vége
+
+      { // 16. feladat
+        console.log('=== 16. feladat ===');
+
+
+
+        class Shape{
+            constructor(x, y){
+                this.x = x;
+                this.y = y;
+            }
+
+            getPosition(){
+                console.log(`x: ${this.x}, y: ${this.y}`)
+                
+            }
+        }
+
+        class Rectangle extends Shape{
+            constructor(x, y, a, b){
+                super(x,y);
+                this.a = a;
+                this.b = b;
+            }
+        }
+        class Circle extends Shape{
+            constructor(x, y, r){
+                super(x,y);
+                this.r = r;
+                this.pi = 3.141592653589793238;
+            }
+
+            calcPerimeter(){
+                console.log(2 * this.r * this.pi)
+            }
+        }
+
+        let newRectangle = new Rectangle(0, 0, 100 , 50)
+        let newCircle = new Circle(10, 20, 11)
+       
+        newCircle.calcPerimeter()
+        newCircle.getPosition()
+        
+
+        
+      } // 16. feladat vége
+    </script>
+  </body>
+</html>

@@ -1,0 +1,513 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.hellContainer {
+  width: 700px;
+  height: 700px;
+  background-color: rebeccapurple;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-image: url("img/hell.jpg");
+  background-position: center;
+  background-size: cover;
+  border: 2px solid #333;
+  border-radius: 50%;
+}
+
+.login {
+  width: 300px;
+  height: 420px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 15px;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.699);
+          box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.699);
+}
+
+.login h3 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.login #loginForm {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login #loginForm input {
+  height: 30px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+
+.login #loginForm button {
+  margin-top: 20px;
+  padding: 8px 25px;
+  border: 1px solid #aaa;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.login #loginForm .message {
+  margin-top: 20px;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1080px;
+  height: 7vh;
+  background-color: #333;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar .navbarBrand {
+  margin-left: 20px;
+  font-size: 1.2rem;
+}
+
+.navbar .userBlock {
+  margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .userBlock .avatar {
+  margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .userBlock .avatar img {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+}
+
+.navbar .userBlock .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 6vh;
+}
+
+.navbar .userBlock .user p:last-of-type {
+  color: #50a4f1;
+}
+
+.navbar .userBlock #logout {
+  height: 5vh;
+  margin-left: 20px;
+  width: 5vh;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #50a4f1;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 26px;
+  color: #50a4f1;
+}
+
+.navbar .userBlock #logout:hover {
+  background-color: #e6e6e6;
+}
+
+.navbar .userBlock #logout:active {
+  background-color: #aaa;
+}
+
+.adminBody {
+  width: 100%;
+  max-width: 1080px;
+  min-height: 500px;
+  background-color: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.adminBody .sideBar {
+  width: 160px;
+  min-height: 100%;
+  background-color: #ddd;
+  border-right: 1px solid #bbb;
+  padding: 5px;
+}
+
+.adminBody .sideBar ul {
+  margin-top: 20px;
+}
+
+.adminBody .sideBar ul li {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.adminBody .sideBar ul li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #333;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.adminBody .sideBar ul li a:hover {
+  color: #3690f7;
+}
+
+.adminBody .content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.adminBody .content p {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.adminBody .content .selectContainer select {
+  margin-bottom: 20px;
+  height: 40px;
+  width: 160px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.adminBody .content .selectContainer button {
+  height: 40px;
+  padding: 0 15px;
+  background-color: #333;
+  color: white;
+  border: 1px solid black;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.adminBody .content .selectContainer button:hover {
+  background-color: #555;
+}
+
+.adminBody .content .selectContainer button:active {
+  background-color: #222;
+}
+
+.adminBody .content .galleryContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.adminBody .content .galleryContainer img {
+  width: 260px;
+  height: 180px;
+  margin-bottom: 15px;
+  -webkit-transition: .6s;
+  transition: .6s;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
+.adminBody .content .galleryContainer img:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+}
+
+.adminBody .content .galleryContainer img:active {
+  -webkit-animation-name: imageAnimation;
+          animation-name: imageAnimation;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: .1s;
+          animation-duration: .1s;
+}
+
+@-webkit-keyframes imageAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes imageAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.adminBody .content .databaseForm {
+  margin-bottom: 20px;
+}
+
+.adminBody .content .databaseForm input {
+  height: 30px;
+  padding: 0 5px;
+  width: 120px;
+  border-radius: 0;
+  border: 1px solid #999;
+  border-right: none;
+}
+
+.adminBody .content .databaseForm input:focus {
+  outline: none;
+}
+
+.adminBody .content .databaseForm #useridInput {
+  width: 30px;
+  text-align: center;
+}
+
+.adminBody .content .databaseForm #emailInput {
+  border-right: 1px solid #999;
+}
+
+.adminBody .content .databaseForm button {
+  padding: 0 8px;
+  height: 30px;
+  border-radius: 0;
+  border: 1px solid #999;
+  border-left: none;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.adminBody .content .databaseForm button:hover {
+  background-color: #ccc;
+  color: #3690f7;
+}
+
+.adminBody .content .dataTable {
+  border-collapse: collapse;
+}
+
+.adminBody .content .dataTable tr td, .adminBody .content .dataTable tr th {
+  width: 120px;
+  text-align: left;
+  height: 40px;
+  border: 1px solid #999;
+  background-color: white;
+  padding: 5px 5px;
+}
+
+.adminBody .content .dataTable tr td, .adminBody .content .dataTable tr th:nth-of-type(1) {
+  width: 30px;
+  text-align: center;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(3) {
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  overflow: hidden;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(3):hover {
+  -webkit-filter: blur(0px);
+          filter: blur(0px);
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(4) input {
+  margin-left: 10px;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(7) {
+  width: auto;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  border-bottom: 1px solid #999;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(7) button {
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 0;
+  border: none;
+  padding: 0 5px;
+  color: red;
+  font-size: 18px;
+  border-radius: 50%;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(7) button:hover {
+  color: red;
+  -webkit-box-shadow: 0px 0px 5px red, 0px 0px 8px rgba(231, 83, 83, 0.644);
+          box-shadow: 0px 0px 5px red, 0px 0px 8px rgba(231, 83, 83, 0.644);
+  background-color: #eee;
+  font-size: 20px;
+}
+
+.adminBody .content .dataTable tr th:nth-of-type(7) {
+  text-align: center;
+  color: red;
+  font-size: 12px;
+  width: 60px;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(8) {
+  width: auto;
+  padding: 0;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(8) button {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  padding: 0 5px;
+  background-color: #a7f2ff;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(8) button i {
+  font-size: 20px;
+  color: #333;
+}
+
+.adminBody .content .dataTable tr td:nth-of-type(8) button:hover {
+  background-color: #a7fffb;
+}
+
+footer {
+  width: 100%;
+  max-width: 1080px;
+  height: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #333;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+footer span {
+  color: #50a4f1;
+  font-size: 14px;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 5px;
+}
+/*# sourceMappingURL=main.css.map */

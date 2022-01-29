@@ -1,0 +1,17 @@
+body{
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    p{
+        background-color: #eee;
+        padding: 15px 0;
+        border-bottom: 2px solid #ddd;
+        strong{
+            display: inline-block;
+            transform: rotate(5deg);
+            margin: 0 5px;
+            font-size: 4rem;
+        }
+    }
+    
+}

@@ -1,0 +1,542 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#ndButton {
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+
+.fridge {
+  width: 400px;
+  height: 90vh;
+  background: -webkit-gradient(linear, left top, right top, from(#bdbdbd), color-stop(50%, #e3e3e3), to(#bdbdbd));
+  background: linear-gradient(90deg, #bdbdbd 0%, #e3e3e3 50%, #bdbdbd 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 10px;
+  position: relative;
+}
+
+.fridge .upperPart {
+  width: 90%;
+  height: 45%;
+  background-color: white;
+  border: 1px solid #999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.fridge .upperPart .door {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: .2s;
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.486);
+          box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .upperPart .door .hinge {
+  width: 30px;
+  height: 40px;
+  background-color: #2f4353;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2f4353), color-stop(74%, #d2ccc4));
+  background-image: linear-gradient(270deg, #2f4353 0%, #d2ccc4 74%);
+  position: absolute;
+  top: 60px;
+  left: -15px;
+  border: 1px solid #2f4353;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .upperPart .door .hinge .screw {
+  width: 10px;
+  height: 10px;
+  background-color: #2f4353;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.fridge .upperPart .door .hinge .screw .driveX1 {
+  width: 10px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.fridge .upperPart .door .hinge .screw .driveX2 {
+  width: 2px;
+  height: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.fridge .upperPart .door .hinge .screw:nth-of-type(1) {
+  top: 2px;
+  left: 2px;
+}
+
+.fridge .upperPart .door .hinge .screw:nth-of-type(2) {
+  top: 2px;
+  right: 2px;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.fridge .upperPart .door .hinge .screw:nth-of-type(3) {
+  bottom: 2px;
+  left: 2px;
+  -webkit-transform: rotate(112deg);
+          transform: rotate(112deg);
+}
+
+.fridge .upperPart .door .hinge .screw:nth-of-type(4) {
+  right: 2px;
+  bottom: 2px;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+.fridge .upperPart .door .hinge2 {
+  width: 30px;
+  height: 40px;
+  background-color: #2f4353;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2f4353), color-stop(74%, #d2ccc4));
+  background-image: linear-gradient(270deg, #2f4353 0%, #d2ccc4 74%);
+  position: absolute;
+  bottom: 60px;
+  left: -15px;
+  border: 1px solid #2f4353;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .upperPart .door .hinge2 .screw {
+  width: 10px;
+  height: 10px;
+  background-color: #2f4353;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.fridge .upperPart .door .hinge2 .screw .driveX1 {
+  width: 10px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.fridge .upperPart .door .hinge2 .screw .driveX2 {
+  width: 2px;
+  height: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.fridge .upperPart .door .hinge2 .screw:nth-of-type(1) {
+  top: 2px;
+  left: 2px;
+}
+
+.fridge .upperPart .door .hinge2 .screw:nth-of-type(2) {
+  top: 2px;
+  right: 2px;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.fridge .upperPart .door .hinge2 .screw:nth-of-type(3) {
+  bottom: 2px;
+  left: 2px;
+  -webkit-transform: rotate(112deg);
+          transform: rotate(112deg);
+}
+
+.fridge .upperPart .door .hinge2 .screw:nth-of-type(4) {
+  right: 2px;
+  bottom: 2px;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+.fridge .upperPart .door .handle {
+  width: 50px;
+  height: 12px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2f4353), color-stop(50%, #a1a1a1), to(#2f4353));
+  background-image: linear-gradient(270deg, #2f4353 0%, #a1a1a1 50%, #2f4353 100%);
+  border-radius: 6px;
+  position: absolute;
+  right: 40px;
+  bottom: 60px;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.486);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .upperPart .door:hover {
+  opacity: 0;
+}
+
+.fridge .upperPart .shelf {
+  width: 100%;
+  height: 33%;
+  border-bottom: 1px solid #999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-left: 5px;
+  background-color: #fdfdf6;
+}
+
+.fridge .upperPart .shelf .item {
+  width: 70px;
+  height: 80%;
+  background-color: black;
+  margin-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.fridge .upperPart .shelf .item p {
+  color: white;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+.fridge .upperPart .shelf .item button {
+  padding: 2px 4px;
+}
+
+.fridge .upperPart .shelf:last-of-type {
+  border: none;
+}
+
+.fridge .upperPart .shelf:first-of-type {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fbfbb1), color-stop(30%, #fdfdf6));
+  background: linear-gradient(180deg, #fbfbb1 0%, #fdfdf6 30%);
+}
+
+.fridge .lowerPart {
+  width: 90%;
+  height: 45%;
+  background-color: white;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  border: 1px solid #999;
+  position: relative;
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.486);
+          box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .lowerPart .hinge {
+  width: 30px;
+  height: 40px;
+  background-color: #2f4353;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2f4353), color-stop(74%, #d2ccc4));
+  background-image: linear-gradient(270deg, #2f4353 0%, #d2ccc4 74%);
+  position: absolute;
+  top: 60px;
+  left: -15px;
+  border: 1px solid #2f4353;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .lowerPart .hinge .screw {
+  width: 10px;
+  height: 10px;
+  background-color: #2f4353;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.fridge .lowerPart .hinge .screw .driveX1 {
+  width: 10px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.fridge .lowerPart .hinge .screw .driveX2 {
+  width: 2px;
+  height: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.fridge .lowerPart .hinge .screw:nth-of-type(1) {
+  top: 2px;
+  left: 2px;
+}
+
+.fridge .lowerPart .hinge .screw:nth-of-type(2) {
+  top: 2px;
+  right: 2px;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.fridge .lowerPart .hinge .screw:nth-of-type(3) {
+  bottom: 2px;
+  left: 2px;
+  -webkit-transform: rotate(112deg);
+          transform: rotate(112deg);
+}
+
+.fridge .lowerPart .hinge .screw:nth-of-type(4) {
+  right: 2px;
+  bottom: 2px;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+.fridge .lowerPart .hinge2 {
+  width: 30px;
+  height: 40px;
+  background-color: #2f4353;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2f4353), color-stop(74%, #d2ccc4));
+  background-image: linear-gradient(270deg, #2f4353 0%, #d2ccc4 74%);
+  position: absolute;
+  bottom: 60px;
+  left: -15px;
+  border: 1px solid #2f4353;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .lowerPart .hinge2 .screw {
+  width: 10px;
+  height: 10px;
+  background-color: #2f4353;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.fridge .lowerPart .hinge2 .screw .driveX1 {
+  width: 10px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.fridge .lowerPart .hinge2 .screw .driveX2 {
+  width: 2px;
+  height: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#a8a8a8), color-stop(50%, #d6d6d6), to(#a8a8a8));
+  background: linear-gradient(90deg, #a8a8a8 0%, #d6d6d6 50%, #a8a8a8 100%);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.fridge .lowerPart .hinge2 .screw:nth-of-type(1) {
+  top: 2px;
+  left: 2px;
+}
+
+.fridge .lowerPart .hinge2 .screw:nth-of-type(2) {
+  top: 2px;
+  right: 2px;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.fridge .lowerPart .hinge2 .screw:nth-of-type(3) {
+  bottom: 2px;
+  left: 2px;
+  -webkit-transform: rotate(112deg);
+          transform: rotate(112deg);
+}
+
+.fridge .lowerPart .hinge2 .screw:nth-of-type(4) {
+  right: 2px;
+  bottom: 2px;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+.fridge .lowerPart .handle {
+  width: 50px;
+  height: 12px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#2f4353), color-stop(50%, #a1a1a1), to(#2f4353));
+  background-image: linear-gradient(270deg, #2f4353 0%, #a1a1a1 50%, #2f4353 100%);
+  border-radius: 6px;
+  position: absolute;
+  right: 40px;
+  top: 60px;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.486);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.486);
+}
+
+.fridge .leg {
+  width: 40px;
+  height: 15px;
+  background: -webkit-gradient(linear, left top, right top, from(#673906), color-stop(50%, #886e5b), to(#673906));
+  background: linear-gradient(90deg, #673906 0%, #886e5b 50%, #673906 100%);
+  position: absolute;
+  left: 20px;
+  bottom: -15px;
+}
+
+.fridge .leg2 {
+  width: 40px;
+  height: 15px;
+  background: -webkit-gradient(linear, left top, right top, from(#673906), color-stop(50%, #886e5b), to(#673906));
+  background: linear-gradient(90deg, #673906 0%, #886e5b 50%, #673906 100%);
+  position: absolute;
+  right: 20px;
+  bottom: -15px;
+}
+
+.addItemBox {
+  width: 300px;
+  position: absolute;
+  background-color: #eee;
+  top: 20px;
+  left: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addItemBox #addItemForm {
+  padding: 15px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addItemBox #addItemForm input {
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  width: 75%;
+}
+
+.addItemBox #addItemForm input:focus {
+  outline: none;
+}
+
+.addItemBox #addItemForm button {
+  padding: 10px 15px;
+  background-color: #DB7093;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.addItemBox #addItemForm button:hover {
+  background-color: #eb9ab5;
+}
+
+.addItemBox #addItemForm button:active {
+  background-color: #e25484;
+}
+/*# sourceMappingURL=jan12fridge.css.map */

@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+#telefonKonyv {
+  border-collapse: collapse;
+}
+
+#telefonKonyv tr th {
+  height: 25px;
+  padding: 0 15px;
+  border: 1px solid #bdbdbd;
+}
+
+#telefonKonyv tr td {
+  height: 25px;
+  padding: 0 15px;
+  border: 1px solid #bdbdbd;
+}
+
+#telefonKonyv tr .tdclass {
+  text-decoration: line-through;
+}
+
+#telefonKonyv tr:nth-child(2n) {
+  background-color: #eee;
+}
+/*# sourceMappingURL=jan08Telkonyv.css.map */

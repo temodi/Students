@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /* let convertNum = function(num){
+            if( isNaN(num)){
+                return num.toString();
+            } else{
+                return num;
+            }
+        }
+ */
+
+
+       /*  function chaos(str, arr){
+            let eredmeny = "";
+            for(let i = 0 ; i < str.length ; i++){
+                if(typeof str[arr[i]] !== "undefined"){
+                    eredmeny = eredmeny + str[arr[i]]
+                    //console.log(str[arr[i]])
+                }
+                
+            }
+            return console.log(eredmeny)
+        }
+
+        chaos("Jó reggelt vietnám", [1,6,8,11]) */
+   /*      function square(a){
+            return a * a
+        }
+        function each(tomb, callback){
+            if(!Array.isArray(tomb)){
+                return console.log(" a megadott paraméter nem tömb")
+            } else if ( typeof callback != "function"){
+                return console.log(" a megadott paraméter nem függvény")
+            } else{
+                for(let i = 0 ; i < tomb.length ; i++){
+                    console.log(callback(tomb[i]))
+                }
+            }
+            
+        }
+
+        each([1,2,3,4,5, 50], square) */
+
+
+        /*Tároljuk egy hir cikk adatait objektumba és tároljunk el 5 cikket.
+  Legyen neki `id, title, desc, read` mezői. Normál esetben a cikk megtekintésével a cikk id-ja alapján be tudjuk állítani, hogy olvasott már. 
+  Ezt most azzal oldjuk meg, hogy a felhasználótól kérjük be, melyik cikket szeretné olvasni, ha van olyan cikk (id alapjan), 
+  akkor állítsuk be olvasottra, jelenitsük meg a cikket a console.log-on.
+*//* 
+        let article =[{id: "001", title:"Yoyoyo", desc: "ez a Yoyoyo cikk", read: 0}, {id: "002", title:"Yoyoyo2", desc: "ez a 2. Yoyoyo cikk", read: 0}] ;
+        
+
+
+
+        function search(db){
+            let user = window.prompt("melyik cikket akarod elolvasni?");
+            let articleId = Number(user)
+            for(let i = 0 ; i < db.length ;i++){
+                if(db[i].id == articleId){
+                    return console.log(db[i])
+                } 
+
+                return console.log("nincs ilyen cikk id")
+                
+            }
+        }
+        
+        search(article)
+        
+         */
+
+
+
+
+
+        class CartItem{
+            constructor(itemId, qty, nettV, vat){
+                this.itemId = itemId;
+                this.qty = qty;
+                this.nettV = nettV;
+                this.vat = vat;
+            }
+
+            setdb(value){
+                if(value >= 0){
+                    this.qty = value
+                } 
+            }
+
+            gross(){
+                return this.nettV + this.nettV*this.vat
+            }
+        }
+
+        let newCart = new CartItem(1, 2 , 100 , 0.2)
+
+        console.log(newCart)
+        newCart.setdb(4)
+        console.log(newCart)
+        console.log(newCart.gross())
+
+
+
+
+
+
+    </script>
+</body>
+</html>

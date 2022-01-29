@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Roboto Mono', monospace;
+  padding-top: 35px;
+  background-image: url("jan17background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+
+.colorContainer {
+  width: 800px;
+  height: 800px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding-top: 35px;
+}
+
+.colorContainer .colorBox {
+  width: 220px;
+  height: 220px;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.colorContainer .colorBox:hover {
+  -webkit-filter: saturate(60%) contrast(150%);
+          filter: saturate(60%) contrast(150%);
+  opacity: .6;
+}
+
+.dialogueContainer {
+  width: 800px;
+  height: 60px;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-top: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 35px;
+}
+
+.dialogueContainer button {
+  padding: 5px 10px;
+  margin-right: 20px;
+}
+
+.dialogueContainer p {
+  font-size: 20px;
+  color: #0d56f3;
+}
+
+.gameOver {
+  width: 100vw;
+  height: 100vh;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gameOver .gameOverCard {
+  width: 640px;
+  height: 480px;
+  background-color: #2a3492e3;
+  border: 2px solid #ff9526;
+  font-family: 'Press Start 2P', cursive;
+  color: #ef4423;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.gameOver .gameOverCard .gameOverMessage {
+  font-size: 60px;
+}
+
+.gameOver .gameOverCard .gameOverCardMessage {
+  color: white;
+}
+
+.gameOver .gameOverCard button {
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+/*# sourceMappingURL=jan17.css.map */

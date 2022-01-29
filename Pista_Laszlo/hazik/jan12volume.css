@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.audioContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 30px;
+}
+
+.audioContainer .decrease, .audioContainer .increase, .audioContainer .mute {
+  height: 28px;
+  width: 28px;
+  background-color: #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  color: #444;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.audioContainer .decrease:hover, .audioContainer .increase:hover, .audioContainer .mute:hover {
+  background-color: #aaa;
+}
+
+.audioContainer .decrease:active, .audioContainer .increase:active, .audioContainer .mute:active {
+  background-color: #999;
+}
+
+.audioContainer .volumeBar {
+  width: 120px;
+  margin: 0 20px;
+  height: 40px;
+  position: relative;
+}
+
+.audioContainer .volumeBar .volumeLine {
+  width: 100%;
+  height: 5px;
+  background-color: #9caefd;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 5;
+}
+
+.audioContainer .volumeBar .volumeButton {
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, white 0%, #bdbdbd 63%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+  -webkit-transition: .2s;
+  transition: .2s;
+  left: 20px;
+}
+
+.audioContainer .volumeBar .volumeButton2 {
+  left: 0px;
+}
+
+.audioContainer .mute2 {
+  background-color: #999;
+}
+
+.audioContainer .mute2:hover {
+  background-color: #999;
+}
+
+.audioContainer .disabled {
+  background-color: #999;
+}
+
+.audioContainer .disabled:hover {
+  background-color: #999;
+}
+/*# sourceMappingURL=jan12volume.css.map */

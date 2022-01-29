@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAA;EACG,MAAM,EAAC,CAAC;CACX;;AACD,AAAA,IAAI,CAAA;EACA,OAAO,EAAE,IAAI;CAChB;;AACD,AAAA,CAAC,EAAC,IAAI,CAAA;EACF,OAAO,EAAE,KAAK;CACjB;;AACD,AAAA,EAAE,CAAA;EACE,MAAM,EAAE,OAAO;CAClB;;AAED,AAAA,OAAO,CAAA;EACH,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "jan05.scss"
+    ],
+    "names": [],
+    "file": "jan05.css"
+}

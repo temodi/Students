@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 20px;
+}
+
+.display{
+    width: 400px;
+    margin-bottom: 40px;
+    .activeFormElement{
+        font-weight: bold;
+    }
+}
+
+.formForm{
+    width: 400px;
+    input{
+        margin-bottom: 15px;
+    }
+}
+
+hr{
+    margin-bottom: 20px;
+}
+
+.inputIMG{
+    width: 400px;
+    margin-top: 20px;
+}
