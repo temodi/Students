@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .link {
+            text-decoration: none;
+            font-size: 2rem;
+        }
+
+        .links {
+            text-decoration: none;
+            background: linear-gradient(to right, rgb(117, 25, 25), blueviolet);
+            color: white;
+            font-size: 2rem;
+        }
+
+        .subcontent {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" class="link">London</a>
+    <a href="#" class="link">Barcelona</a>
+    <a href="#" class="link">Moscow</a>
+
+    <div class="content">
+        <div class="subcontent">
+            <img src="http://placekitten.com/200/200" alt="">
+            <p>tartalom1</p>
+        </div>
+        <div class="subcontent">
+            <img src="http://placekitten.com/200/200" alt="">
+            <p>tartalom2</p>
+        </div>
+        <div class="subcontent">
+            <img src="http://placekitten.com/200/200" alt="">
+            <p>tartalom3</p>
+        </div>
+    </div>
+    </div>
+
+    <script>
+
+        let links = document.querySelectorAll(".link")
+        let subcontents = document.querySelectorAll(".subcontent")
+
+        let elem = null;
+
+        for (let i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                console.log("linkek click")
+
+                if (elem) {
+                    elem.classList.remove("links");
+                }
+                
+                elem = event.target;
+                elem.classList.add("links");
+            
+            })
+        }
+
+        let elem2 = null;
+
+        for (let i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                console.log("subcontents click")
+
+                if (elem2) {
+                    elem2.style.display = "none";
+                }
+
+                elem2 = subcontents[i];
+                elem2.style.display = "inline-block";
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>

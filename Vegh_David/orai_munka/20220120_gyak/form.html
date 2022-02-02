@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Éppen ezt szerkeszted:</p>
+    <div class="target"></div>
+    <hr>
+    <form action="">
+        <label for="firstlabel">first</label>
+        <input type="text" class="firstinput" id="firstlabel"><br>
+        <label for="secondlabel">second</label>
+        <input type="text" class="secondinput" id="secondlabel"><br>
+        <label for="thirdlabel">third</label>
+        <input type="text" class="thirdinput" id="thirdlabel"><br>
+    </form>
+
+    <script>
+
+        const inputs = document.querySelectorAll("input");
+        const labels = document.querySelectorAll("label")
+        const mytarget = document.querySelector(".target");
+
+        let elem = null;
+
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener("click", () => {
+                mytarget.innerHTML = labels[i].innerHTML;
+            })
+
+            inputs[i].addEventListener("focus", (e) => {
+                if (inputs[i].value !== "") {
+                    inputs[i].style.backgroundColor = "green";
+                }
+                else {
+                    inputs[i].style.backgroundColor = "red";
+                }
+            })
+
+            inputs[i].addEventListener("blur", (e) => {
+                inputs[i].style.backgroundColor = "white";
+                if (inputs[i].value !== "") {
+                    console.log("dex")
+                }
+            })
+
+            inputs[i].addEventListener("input", () => {
+                inputs[i].style.backgroundColor = "green";
+                inputs[i].after("ok");
+            })
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

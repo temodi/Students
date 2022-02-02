@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link</title>
+
+    <style>
+        .main {
+            display: none;
+        }
+
+        .rect {
+            display: flex;
+            width: 250px;
+            height: 100px;
+            background-color: rgb(107, 16, 192);
+            text-align: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .rect p{
+            color: white;
+        }
+
+        a{
+            display: inline-block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="http://google.com">Oldal elhagyása</a>
+
+    <div class="main">
+        <div class="rect">
+            <p>Biztos el akarod hagyni az oldalt?</p>
+            <div class="buttons">
+                <button class="igen">Igen</button>
+                <button class="nem">Nem</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let link = document.querySelector("a");
+        let yesbutton = document.querySelector(".igen");
+        let nobutton = document.querySelector(".nem");
+        let main = document.querySelector(".main")
+
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            link.style.display = "none";
+            main.style.display = "block";
+        })
+
+        nobutton.addEventListener("click", () => {
+            link.style.display = "block";
+            main.style.display = "none";
+        })
+
+        yesbutton.addEventListener("click", () => {
+            location.href = "http://google.com";
+        })
+
+    </script>
+
+</body>
+
+</html>

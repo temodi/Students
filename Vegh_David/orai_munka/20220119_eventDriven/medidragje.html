@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rectangle {
+            height: 200px;
+            width: 300px;
+            background-color: darkgoldenrod;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div  id="rectangle">
+
+    </div>
+
+    <script>
+        let rectangle = document.querySelector("#rectangle")
+        let offset=[0,0]
+        let mouse=false;
+
+
+        rectangle.addEventListener("mousedown", (e) => {
+            rectangle.style.backgroundColor = "grey"
+            offset=[
+                rectangle.offsetLeft-e.clientX,
+                rectangle.offsetTop-e.clientY
+
+            ]
+            mouse=true;
+        })
+
+            rectangle.addEventListener("mousemove", (e) => {
+                if(mouse){
+                rectangle.style.left =`${e.clientX+offset[0]}px`
+                rectangle.style.top = `${e.clientY+offset[1]}px`
+
+            }
+              
+            })
+            
+            rectangle.addEventListener("mouseup", () => {
+                mouse=false;
+                rectangle.style.backgroundColor = "darkgoldenrod"
+            })
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="randomid">valami</div>
+    <div class="randomclass">valami2</div>
+    <div>
+        <p>randomszöveg</p>
+        <p>másodikszöveg</p>
+    </div>
+
+    <script>
+        let idAlapjan = document.querySelector("#randomid");
+        console.log(idAlapjan);
+        let classAlapjan = document.querySelector(".randomclass");
+        console.log(classAlapjan);
+        let tagAlapjan = document.querySelectorAll("div p");
+        console.log(tagAlapjan);
+        let lastCAlapajan = document.querySelector("div:nth-child(3)")
+        console.log(lastCAlapajan);
+        let divp = lastCAlapajan.querySelectorAll("p");
+        console.log(divp);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <td>Név</td>
+            <td>Beosztás</td>
+            <td>Törlés</td>
+        </thead>
+        <tr>
+            <td>Valaki1</td>
+            <td>Valami1</td>
+            <td><button type="button">Törlés</button></td>
+        </tr>
+        <tr>
+            <td>Valaki2</td>
+            <td>Valami2</td>
+            <td><button type="button">Törlés</button></td>
+        </tr>
+        <tr>
+            <td>Valaki3</td>
+            <td>Valami3</td>
+            <td><button type="button">Törlés</button></td>
+        </tr>
+        <tr>
+            <td>Valaki4</td>
+            <td>Valami4</td>
+            <td><button type="button">Törlés</button></td>
+        </tr>
+    </table>
+
+    <script>
+
+        let button = document.querySelectorAll("button");
+
+        for (let i = 0; i < button.length; i++){
+            button[i].addEventListener("click", function(event){
+                button[i].parentElement.parentElement.remove();
+            })
+        }
+
+    </script>
+
+</body>
+</html>

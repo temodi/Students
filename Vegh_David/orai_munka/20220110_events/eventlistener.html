@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" class="button" onclick="onclickevent();">Press me!</button>
+    <button type="button" class="but2" >Press me too!</button>
+    <button type="button" class="but3" >Don't leave me out!</button>
+    <button type="button" class="but4" >Click</button>
+
+
+    <script>
+
+        let but = document.querySelector(".button");
+        let but2 = document.querySelector(".but2");
+        let but3 = document.querySelector(".but3");
+        let but4 = document.querySelector(".but4");
+
+        function onclickevent(){
+            but.style.backgroundColor = "red";
+        }
+
+        but2.onclick = () => but2.style.backgroundColor = "blueviolet";
+    
+        but3.addEventListener("click", () => but3.style.backgroundColor = "lightgreen");
+
+
+
+       /*  but4.addEventListener("click", clickCounter);
+
+        let i = 0;
+
+        function clickCounter(){
+            i += 1;
+            but4.innerHTML = `Click ${i}`;
+        } */
+
+
+
+        let i = 0;
+
+        but4.addEventListener("click", () => {i+= 1; but4.innerHTML = `Click ${i}`});
+
+    </script>
+</body>
+</html>

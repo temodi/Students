@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomise Game</title>
+    <style>
+        .main {
+            background: linear-gradient(45deg, #31E7FF, #F8258F, #BC25F8);
+            margin: 0, auto;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            font-family: 'Lucida Grande', sans-serif
+        }
+        .title {
+            font-size: 5rem;
+        }
+        .winner {
+            font-size: 7rem;
+        }
+        .main .btn {
+            font-size: 4rem;
+            margin-top: 66.4px;
+            padding: 20px 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 300px;
+            background: transparent;
+            border: 3px black solid;
+        }
+        .main .rst {
+            font-size: 4rem;
+            margin-top: 66.4px;
+            padding: 20px 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 300px;
+            background: transparent;
+            border: 3px black solid;
+        }
+        .reg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .reg .reglabel {
+            font-size: 4rem;
+            width: 300px;
+            text-align: center;
+            margin: 66.4px 0;
+        }
+        .reg #reginput {
+            font-size: 1.5rem;
+            color: black;
+            width: 300px;
+            text-align: center;
+            border-radius: 20px;
+            background-color: transparent;
+            border: 3px black solid;
+            height: 60px;
+        }
+        .reg #reginput::placeholder {
+            text-align: center;
+            color: black;
+            font-size: 1.5rem;
+            vertical-align: center;
+        }
+        .reg .regbtn {
+            font-size: 4rem;
+            text-align: center;
+            margin: 66.4px 0;
+            font-size: 4rem;
+            padding: 20px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 300px;
+            background: transparent;
+            border: 3px black solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2 class="title">The lucky winner is:</h2>
+        <h1 class="winner"></h1>
+        <button class="btn">Click</button>
+        <button class="rst">Reset</button>
+        <form action="" class="reg">
+            <label for="reginput" class="reglabel">Name:</label>
+            <input type="text" id="reginput" placeholder="Add your name!">
+            <button type="submit" class="regbtn">Register</button>
+        </form>
+    </div>
+    <script>
+        let participants = ["Alfréd", "Géza", "Ubul", "Mari", "Gyuri", "Juli", "Berci"];
+        let winner = document.querySelector(".winner");
+        let button = document.querySelector(".btn");
+        let reset = document.querySelector(".rst");
+        let submit = document.querySelector(".regbtn");
+        button.onclick = function () {
+            if (participants.length === 0) {
+                winner.innerText = "No more players";
+            }
+            else {
+                let i = Math.floor(Math.random() * participants.length);
+                winner.innerText = participants[i];
+                participants.splice(i, 1);
+                console.log(participants);
+            }
+        }
+        reset.onclick = function () {
+            participants = ["Alfréd", "Géza", "Ubul", "Mari", "Gyuri", "Juli", "Berci"];
+            winner.innerText = "";
+            console.log(participants);
+        }
+        submit.onclick = function (e) {
+            if (document.querySelector("#reginput").value !== "") {
+                e.preventDefault();
+                let input = document.querySelector("#reginput").value;
+                participants.push(input);
+                document.querySelector("#reginput").value = "";
+                console.log(participants);
+            }
+            else{
+                e.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

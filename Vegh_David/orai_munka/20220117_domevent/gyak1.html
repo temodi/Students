@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>kutya
+            <p>szöveg 1</p>
+            <p>szöveg 2</p>
+            <p>szöveg 3</p>
+            <p>szöveg 1</p>
+            <p>szöveg 2</p>
+            <p>szöveg 3</p>
+        </div>
+        <ul>
+            <li><a href="#">random 1</a></li>
+            <li><a href="#">random 2</a></li>
+            <li><a href="#">random 3</a></li>
+        </ul>
+    </div>
+
+    <script>
+
+        let body = document.querySelector("body");
+
+        body.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.target.parentElement.style.border = "1px solid black";
+            e.target.firstElementChild.style.backgroundColor = "red";
+            e.target.lastElementChild.style.backgroundColor = "red";
+            e.target.previousElementSibling.style.backgroundColor = "blue"
+            e.target.nextElementSibling.style.backgroundColor = "blue"
+        })
+
+    </script>
+</body>
+
+</html>

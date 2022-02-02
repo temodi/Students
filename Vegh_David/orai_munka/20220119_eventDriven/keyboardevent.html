@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kiskep{
+            width: 50px;
+            height: 50px;
+        }
+
+        .details{
+            display: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="http://placekitten.com/200/200" alt="">
+    <div class="details">
+        <p>Ez itt egy cica.</p>
+        <img class="kiskep" src="http://placekitten.com/200/200" alt="">
+    </div>
+
+    <script>
+
+        let pic = document.querySelector("img");
+        let details = document.querySelector(".details");
+
+        document.addEventListener("click", (e) => {
+            details.style.display = "block";
+
+            details.style.left = `${e.pageX}px`;
+            details.style.top = `${e.pageY}px`;
+        })
+
+        document.addEventListener("keydown", (e) => {
+            if(e.key == "Escape"){
+                details.style.display = "none";
+            }
+        })
+
+    </script>
+</body>
+</html>

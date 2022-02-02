@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dobozka {
+            display: none;
+            background-color: aqua;
+            height: 150px;
+            width: 150px;
+            position: relative;
+            text-align: center;
+            vertical-align: center;
+            border: 2px solid black;
+        }
+
+        p{
+            position: absolute;
+            top: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dobozka">
+        <p>Nem működik a context menü!</p>
+    </div>
+
+    <script>
+
+        let doboz = document.querySelector(".dobozka")
+
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+            doboz.style.display = "inline-block";
+
+            let x = event.clientX;
+            let y = event.clientY;
+
+            doboz.style.top = `${y}px`;
+            doboz.style.left = `${x}px`;
+        })
+
+        document.addEventListener("click", function (){
+            doboz.style.display = "none";
+        })
+
+    </script>
+</body>
+
+</html>

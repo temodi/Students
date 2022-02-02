@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume</title>
+
+    <style>
+        .flexmain {
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+        }
+
+        .flexitem {
+            width: 4px;
+            height: 20px;
+            background-color: gray;
+        }
+
+        .flexitem.active {
+            width: 4px;
+            height: 20px;
+            background-color: rgb(119, 192, 10);
+        }
+
+        #mute {
+            width: 60px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="flexmain">
+        <button id="down" type="button">-</button>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <div class="flexitem"></div>
+        <button id="up" type="button">+</button>
+        <button id="mute" type="button">Mute</button>
+    </div>
+
+    <script>
+
+        let items = document.querySelectorAll(".flexitem");
+        let butDown = document.querySelector("#down");
+        let butUp = document.querySelector("#up");
+        let butMute = document.querySelector("#mute");
+
+        let counter = 2;
+        let decider = 1
+
+        items[0].classList.add("active");
+        items[1].classList.add("active");
+
+        butUp.addEventListener("click", () => {
+            if (decider === 0) {
+                if (counter < 12) {
+                    for (let i = 0; i < items.length; i++) {
+                        if (counter + 1 === i) {
+                            items[i].classList.add("active");
+                        }
+                    }
+                    counter += 2;
+                    decider = 1
+                }
+                if (counter === 12) {
+                    butUp.disabled = true;
+                }
+                if (counter > 0) {
+                    butDown.disabled = false;
+                }
+            }
+            else if (decider === 1) {
+                if (counter < 12) {
+                    for (let i = 0; i < items.length; i++) {
+                        if (counter === i) {
+                            items[i].classList.add("active");
+                        }
+                    }
+                    counter += 1;
+                }
+                if (counter === 12) {
+                    butUp.disabled = true;
+                }
+                if (counter > 0) {
+                    butDown.disabled = false;
+                }
+            }
+        })
+
+
+
+        butDown.addEventListener("click", () => {
+            if (decider === 1) {
+                if (counter >= 0) {
+                    for (let i = 12; i >= 0; i--) {
+                        if (counter - 1 === i) {
+                            items[i].classList.remove("active");
+                        }
+                    }
+                    counter -= 2;
+                    decider = 0;
+                }
+                if (counter < 12) {
+                    butUp.disabled = false;
+                }
+                if (counter === -1) {
+                    butDown.disabled = true;
+                }
+            }
+            else if (decider === 0) {
+                if (counter >= 0) {
+                    for (let i = 12; i >= 0; i--) {
+                        if (counter === i) {
+                            items[i].classList.remove("active");
+                        }
+                    }
+                    counter -= 1;
+                }
+                if (counter < 12) {
+                    butUp.disabled = false;
+                }
+                if (counter === -1) {
+                    butDown.disabled = true;
+                }
+            }
+        })
+
+
+
+        let myarray = [];
+        let muter = 0;
+
+        butMute.addEventListener("click", () => {
+            if (myarray.length === 0) {
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].classList.contains("active")) {
+                        myarray.push(items[i]);
+                    }
+                    for (let j = 0; j < myarray.length; j++) {
+                        if (items[i] === myarray[j]) {
+                            items[i].classList.toggle("active");
+                        }
+                    }
+                }
+            }
+            else {
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].classList.contains("active")) {
+                        myarray.push(items[i]);
+                    }
+                    for (let j = 0; j < myarray.length; j++) {
+                        if (items[i] === myarray[j]) {
+                            items[i].classList.toggle("active");
+                        }
+                    }
+                }
+                myarray.splice(0, myarray.length);
+            }
+
+
+            if (counter !== -1) {
+                butDown.toggleAttribute("disabled");
+            }
+            if (counter !== 12) {
+                butUp.toggleAttribute("disabled");
+            }
+
+
+            butMute.classList.toggle("active2")
+            if (muter === 0) {
+                butMute.innerHTML = "Mute"
+                muter = 1;
+            }
+            if (butMute.classList.contains("active2")) {
+                butMute.innerHTML = "Unmute"
+                muter = 0;
+            }
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

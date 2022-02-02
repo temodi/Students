@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag</title>
+
+    <style>
+        .rect {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="rect"></div>
+
+    <script>
+
+        let rect = document.querySelector(".rect");
+
+        rect.addEventListener("mousedown", (e) => {
+            rect.style.backgroundColor = "red";
+            document.addEventListener("mousemove", move)
+        })
+
+        rect.addEventListener("mouseup", () => {
+            rect.style.backgroundColor = "gray";
+            document.removeEventListener("mousemove", move)
+        })
+
+        function move(e) {
+            if (window.innerWidth > e.clientX && window.innerHeight > e.clientY && 0 < e.clientX && 0 < e.clientY) {
+                rect.style.backgroundColor = "red";
+                rect.style.left = `${e.clientX - 75}px`;
+                rect.style.top = `${e.clientY - 75}px`;
+            }
+            else{
+                rect.style.backgroundColor = "gray";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

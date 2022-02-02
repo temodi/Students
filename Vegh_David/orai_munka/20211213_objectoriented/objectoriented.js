@@ -4,7 +4,7 @@ class OsztalyNeve {
 
 }
 
-// Osztal letrehozasa konstruktorral
+// Osztaly letrehozasa konstruktorral
 class Szemely {
     // alapallapotba hozza az objektumot peldanyositaskor
     constructor (vezetekNev, keresztNev, szulDatum, neme){

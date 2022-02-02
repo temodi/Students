@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <label for="">
+            <input type="text" id="url">
+        </label>
+        <img src="" alt="">
+    </form>
+
+    <script>
+
+        const sth = document.querySelector("#url");
+        const kep = document.querySelector("img");
+
+        sth.addEventListener("change", () => {
+            kep.src = sth.value;
+        })
+
+    </script>
+
+</body>
+</html>

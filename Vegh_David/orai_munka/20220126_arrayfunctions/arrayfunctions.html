@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const arr = [1, 22, 45, 68, 99];
+
+        let found = arr.find(item => {
+            return item % 2 === 0;
+        })
+
+        console.log(found)
+
+
+
+
+        const people = [
+            {
+                id: 1,
+                name: "John"
+            },
+            {
+                name: "Elise"
+            },
+            {
+                id: 2,
+                name: "Jack"
+            },
+            {
+                name: "Joe"
+            },
+            {
+                id: 3,
+                name: "Tom"
+            }
+        ]
+
+        function idpeople(...params) {
+            return params[0].filter(item => item[params[1]])
+        }
+
+        console.log(idpeople(people, "id"));
+
+
+
+
+        myarr = [1, 2, 3, 4]
+
+        const newfunc = (param) => {
+            let newarr = [];
+            param.forEach((item) => {
+                newarr.push(item);
+            })
+            return newarr;
+        }
+
+        console.log(newfunc(myarr));
+
+
+
+
+        const tomb = [" string1 ", " string2 ", " string3 "];
+
+        const trimmer = (thisarr) => {
+            return thisarr.map((item) => item.trim());
+        }
+
+        console.log(trimmer(tomb));
+
+
+
+
+        const cart = [
+            {
+                itemId: 1,
+                quantity: 2,
+                price: 120
+            },
+            {
+                itemId: 2,
+                quantity: 1,
+                price: 3
+            },
+            {
+                itemId: 3,
+                quantity: 3,
+                price: 43
+            },
+        ]
+
+        const reducer = (arrom) => {
+            newobj ={
+                fullprice: 0,
+                fullquantity: 0
+            }
+            newobj.fullprice = arrom.reduce((prev, act) => {
+                return prev + act.price
+            },0)
+            newobj.fullquantity = arrom.reduce((prev, act) => {
+                return prev + act.quantity
+            },0)
+            return newobj;
+        }
+
+        console.log(reducer(cart))
+
+        // máshogy:
+
+        let valtozo = cart.reduce((pValue, cValue) => {
+            return {fprice: pValue.fprice + cValue.price,
+                    fquantity: pValue.fquantity + cValue.quantity}
+        }, {fprice: 0, fquantity: 0})
+
+        console.log(valtozo);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const fullName = (...parameters) => {
+            let result = "";
+            for(let i = 0; i < parameters.length; i++){
+                result += `${parameters[i]} `
+            }
+            return result;
+        }
+
+        console.log(fullName("Random", "Béla", "Géza"));
+
+
+
+
+        function otherFullName () {
+            let result = "";
+            for(let i = 0; i < arguments.length; i++){
+                result += `${arguments[i]} `
+            }
+            return result;
+        }
+
+        console.log(otherFullName("Random", "Béla", "Géza"));
+
+
+
+
+        const upperCaser = (...parameters) => {
+            let result = [];
+            for(let i = 0; i < parameters.length; i++){
+                result.push(parameters[i].toUpperCase())
+            }
+            return result;
+        }
+
+        console.log(upperCaser("random", "béla", "géza"));
+
+
+
+
+        const addNumbers = (...params) => {
+            let sum = 0;
+            for(let i = 0; i < params.length; i++){
+                if(typeof params [i] !== "number"){
+                    continue
+                }
+                else{
+                    sum += params[i];
+                }
+            }
+            return sum;
+        }
+
+        console.log(addNumbers("kutya", 5, 7, "macska", true, 3));
+
+    </script>
+
+</body>
+</html>

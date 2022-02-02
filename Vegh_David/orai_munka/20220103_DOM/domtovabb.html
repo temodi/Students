@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form action="get">
+        <input type="text" name="nev" value="Add meg a neved!" id="nev">
+        <br>
+        <input type="text" name="szuldatum" value="Add meg a szül. datumod!" id="szuldatum">
+    </form>
+
+    <div>
+
+    </div>
+
+    <script>
+
+        let nevElem = document.querySelector("#nev");
+        let szulDatum = document.querySelector("#szuldatum");
+        console.log(nevElem.name, nevElem.defaultValue, nevElem.value);
+        console.log(szulDatum.name, szulDatum.defaultValue, szulDatum.value);
+
+
+        let divem = document.querySelector("div");
+
+        let inputs = document.querySelectorAll("input");
+        for (let i = 0; i < inputs.length; i++) {
+            console.log(inputs[i].name, inputs[i].defaultValue, inputs[i].value);
+            divem.innerHTML += inputs[i].name + ": " + inputs[i].value + "<br>";
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

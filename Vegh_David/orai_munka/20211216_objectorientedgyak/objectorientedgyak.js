@@ -1,27 +1,27 @@
-function giveBackRandom(array) {
+/* function giveBackRandom(array) {
     if (!Array.isArray(array)) {
         return null
     }
     return array[Math.floor(Math.random() * array.length)];
 }
 
-console.log(giveBackRandom(["cica", "kutya", "ló", "hal"]));
+console.log(giveBackRandom(["cica", "kutya", "ló", "hal"])); */
 
 
 
 
-function join(array1, array2) {
+/* function join(array1, array2) {
     let array3 = [];
     array3 = array1.concat(array2);
     return array3;
 }
 
-console.log(join(["apa", "anya"], ["mama", "papa"]));
+console.log(join(["apa", "anya"], ["mama", "papa"])); */
 
 
 
 
-function compare(array1, array2) {
+/* function compare(array1, array2) {
     let array3 = [];
     for (let i = 0; i < array1.length; i++) {
         for (let j = 0; j < array2.length; j++) {
@@ -33,12 +33,12 @@ function compare(array1, array2) {
     return array3;
 }
 
-console.log(compare([1, 3, 6, 9, 12], [2, 3, 7, 10, 12]));
+console.log(compare([1, 3, 6, 9, 12], [2, 3, 7, 10, 12])); */
 
 
 
 
-function byteChange(byteIn) {
+/* function byteChange(byteIn) {
     let obj = {};
     obj.bit = byteIn * 8;
     obj.byte = byteIn;
@@ -48,12 +48,12 @@ function byteChange(byteIn) {
     return obj;
 }
 
-console.log(byteChange(10000000000));
+console.log(byteChange(10000000000)); */
 
 
 
 
-function compareObject(obj1, obj2) {
+/* function compareObject(obj1, obj2) {
     let elso = Object.keys(obj1);
     let masodik = Object.keys(obj2);
     if (elso.length !== masodik.length){
@@ -67,12 +67,12 @@ function compareObject(obj1, obj2) {
     return true;
 }
 
-console.log(compareObject({ a: 1, b: 2 }, { a: 1, b: 2, c: 3 }));
+console.log(compareObject({ a: 1, b: 2 }, { a: 1, b: 2, c: 3 })); */
 
 
 
 
-function compareObject2(obj1, obj2) {
+/* function compareObject2(obj1, obj2) {
     let elso = Object.keys(obj1);
     let masodik = Object.keys(obj2);
     if (elso.length !== masodik.length){
@@ -87,11 +87,11 @@ function compareObject2(obj1, obj2) {
 }
 
 console.log(compareObject2({ b: 1, a: 2 }, { a: 1, b: 2, c: 3 }));
+ */
 
 
 
-
-class Counter{
+/* class Counter{
     constructor(num, changeBy, noMinus){
         this.num = num;
         this.changeBy = changeBy;
@@ -130,31 +130,42 @@ szamlalo1.decrease();
 szamlalo1.decrease();
 szamlalo1.decrease();
 szamlalo1.decrease();
-szamlalo1.show();
-
+szamlalo1.show(); */
+ 
 
 
 
 class URLHistory{
     urlLista = [];
+    #actualIndex;
+
     constructor(url){
         this.urlLista.push(url);
+        this.#actualIndex = 0;
     }
 
     go(url){
         this.urlLista.push(url);
+        this.#actualIndex = this.urlLista.length - 1;
     }
 
     back(){
-
+        if(this.#actualIndex >= 0){
+            return this.urlLista[this.#actualIndex--]
+        }
+        console.log("nincs tobb url");
     }
 
     forward(){
-
+        if(this.#actualIndex < this.urlLista.length - 1){
+            return this.urlLista[++this.#actualIndex]
+        }
+        console.log("nincs tobb url");
     }
 
     reset(){
         this.urlLista = [];
+        this.#actualIndex = -1;
     }
 }
 

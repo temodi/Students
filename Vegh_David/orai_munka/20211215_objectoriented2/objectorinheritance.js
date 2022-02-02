@@ -1,4 +1,4 @@
-/* class Alakzat {
+class Alakzat {
     meret;
     xCoord;
     yCoord;
@@ -35,7 +35,7 @@ let kicsiNegyzet = new Negyzet();
 
 kicsiNegyzet.setMeret(12);
 kicsiNegyzet.setPozicio(1, 1);
-kicsiNegyzet.setSzin("#FFFFFF"); */
+kicsiNegyzet.setSzin("#FFFFFF");
 
 
 

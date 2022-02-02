@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let animals = ['dog', 'chicken', 'fish'];
+        let moreAnimals = ['bird', ...animals, 'cat'];
+
+        console.log(moreAnimals); // ['bird', 'dog', 'chicken', 'fish', 'cat']
+
+
+
+
+        const func1 = string1 => [...string1]
+
+        console.log(func1("betűk"))
+
+
+
+
+        const func2 = (...params) => {
+            if (Array.isArray(params[0]) === false || Array.isArray(params[1]) === false) {
+                let arrelse = [];
+                return arrelse;
+            }
+            else {
+                let arr3 = [...params[0], ...params[1]];
+                return arr3;
+            }
+        }
+
+        console.log(func2("string", [4, 5, 6]));
+
+
+
+
+        const func3 = (...params) => {
+            let newobj = { ...params[0], ...params[1] };
+            return newobj;
+        }
+
+        console.log(func3({ id: 1, name: "Joe" }, { height: 178 }));
+
+
+
+
+        // ezt még lehetne chainelni és nem kell return
+
+        const func4 = (...params) => {
+            params.splice(5, Infinity);
+            let numbers = [...params];
+            return numbers.reduce((acc, number) => acc * number, 1)
+        }
+
+        console.log(func4(1, 2, 3, 4, 5, 6));
+
+
+
+
+        /* let id = prompt("id");
+        let value = prompt("value");
+
+        let obj = {
+            [id]: Number(value)
+        }
+
+        console.log(obj); */
+
+
+
+
+        const animalInfo = [
+            'name', 'Bloki', 'age', 12, 'color', 'brown'
+        ]
+
+        let myobj = {};
+        let mykey;
+
+        animalInfo.forEach((item, i) => {
+            if (i % 2 === 0 || i === 0) {
+                mykey = item;
+            }
+            else {
+                myobj = { ...myobj, [mykey]: item }
+            }
+        })
+
+        console.log(myobj)
+
+    </script>
+
+</body>
+
+</html>

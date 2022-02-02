@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function division(a, b) {
+            if (b === 0) {
+                throw new Error("Nullával való osztás nem megengedett!");
+            }
+            if (isNaN(a)) {
+                throw new Error(`A(z) ${a} nem szám!`);
+            }
+            if (isNaN(b)) {
+                throw new Error(`A(z) ${b} nem szám!`);
+            }
+            return a / b;
+        }
+
+        try {
+            division(6, 2);
+        }
+        catch (error) {
+            console.log(`Division függvény hibát dob: ${error}`);
+        }
+
+
+
+
+        function myAlert(param) {
+            try {
+                window.alert(param);
+            }
+            catch (error) {
+                console.log(`A rendszer hibát észlelt: ${error}`);
+            }
+            finally {
+                console.log(param);
+            }
+        }
+
+        window.alert = undefined;
+        myAlert("valami");
+
+
+
+
+        function myRest(...param) {
+            let result = "";
+            for (let i = 0; i < param.length; i++) {
+                if (typeof param[i] !== "string") {
+                    throw new Error(`${i}. paraméter nem string!`)
+                }
+                if(i === 0){
+                    continue
+                }
+                if(i === 1){
+                    result += param[i]
+                }
+                result += param[0] + param[i]
+            }
+            return result
+        }
+
+        try {
+            myRest("-" ,'string1','string2', "string3", "string4")
+        }
+        catch (error){
+            console.log(`Hiba: ${error}`)
+        }
+
+        console.log(myRest("-" ,'string1','string2', "string3", "string4"))
+
+    </script>
+
+</body>
+
+</html>
